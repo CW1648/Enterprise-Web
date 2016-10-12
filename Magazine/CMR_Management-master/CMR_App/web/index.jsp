@@ -1,160 +1,139 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta charset="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/style.css" rel="stylesheet">
-        <title>Home </title>
-    </head>
-    <body>
-        <!--header -->
-        <nav class="navbar navbar-inverse navbar-static-top " role="navigation">
-            <div class="container-fluid">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-EV-navbar-collapse-1">
+<html lang="en" class="no-js">
 
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ESWD Coursework">
+  <meta name="author" content="Ryserg Tung">
+  <!--<link rel="icon" href="../../favicon.ico">-->
+  <title>University Portal</title>
 
-                <div class="navbar-header navbar-inverse">
-                    <a class="navbar-brand" href="index.html">Group5</a>
-                </div>
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
 
-                <div class="collapse navbar-collapse navbar-right" id="bs-EV-navbar-collapse-1">
+  <!-- Custom styles for this website -->
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
 
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#">CMR</a></li>
-                        <li><a href="#">Login</a></li> 
-                        <li><a href="#">About Us</a></li> 
-                    </ul>
-                </div>
-            </div>
-        </nav>
+  <!-- Custom fonts for this website -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
 
-        <!--end ofheader -->
+  <style>
+    body {
+      overflow: hidden;
+    }
+    /* Preloader */
 
-        <!--main content-->
-        <div class="container">
-            <div class="jumbotron">
-                <div class="row">
-                    <div class="col-md-8"><div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                            <!-- Indicators -->
-                            <ol class="carousel-indicators">
-                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                            </ol>
+    #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: black;
+      /* change if the mask should have another color then white */
+      z-index: 99;
+      /* makes sure it stays on top */
+    }
 
-                            <!-- Wrapper for slides -->
-                            <div class="carousel-inner" role="listbox">
-                                <div class="item active">
-                                    <img src="img/gre-uni.jpg" alt="..." id="img2">
-                                    <div class="carousel-caption">
-                                        welcome
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <img src="img/gre-uni2.jpg" alt="..." id="img2">
-                                    <div class="carousel-caption">
+    #status {
+      width: 150px;
+      height: 150px;
+      position: absolute;
+      left: 50%;
+      /* centers the loading animation horizontally one the screen */
+      top: 50%;
+      /* centers the loading animation vertically one the screen */
+      background-image: url('images/logo1.png');
+      /* path to your loading animation */
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 150px;
+      margin: -60px 0 0 -60px;
+      /* is width and height divided by two */
+      -webkit-animation: spin 2s linear infinite;
+      -moz-animation: spin 2s linear infinite;
+      animation: spin 2s linear infinite;
+    }
 
-                                    </div>
-                                </div>
+    @-moz-keyframes spin {
+      100% {
+        -moz-transform: rotate(360deg);
+      }
+    }
 
-                            </div>
+    @-webkit-keyframes spin {
+      100% {
+        -webkit-transform: rotate(360deg);
+      }
+    }
 
-                            <!-- Controls -->
-                            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </div></div>
+    @keyframes spin {
+      100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
 
-                    <div class="col-md-4">
-                        <div class="panel-group" id="accordion">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-                                            Login</a>
-                                    </h4>
-                                </div>
-                                <div id="collapse1" class="panel-collapse collapse in">
-                                    <div class="panel-body">
-                                        <form class="form-horizontal" id="ContactForm" method="post" action="cmr_users">
-                                            <div class="form-group">
-                                                <label class="control-label col-sm-2" for="name"></label>
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="userName" name="txtUserName" placeholder="User name"
-                                                           required data-validation-required-message="Please enter User Name">
+<body>
+  <!-- Preloader -->
+  <div id="preloader">
+    <div id="status">&nbsp;</div>
+  </div>
 
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="control-label col-sm-2" for="pwd"></label>
-                                                <div class="col-sm-10"> 
-                                                    <input type="password" class="form-control" id="pwd" name="txtPassword" placeholder="Password"
-                                                           required data-validation-required-message="Please enter your password">
+  <div class="login-container">
+    <div class="wrapper">
+      <div class="row loginRow">
+        <img src="images/logo.png" alt="" />
+        <h3>Login</h3>
+         <form class="form-horizontal" id="ContactForm" method="post" action="cmr_users">
+          <div class="form-group">
+           <input type="text" class="form-control" id="userName" name="txtUserName" placeholder="User name"
+                                                           >
 
-                                                </div>
-                                            </div>
-                                            <div class="form-group"> 
-                                                <div class="col-sm-offset-2 col-sm-10">
-                                                    <div class="checkbox">
-                                                        <label><input type="checkbox"> Remember me</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group"> 
-                                                <div class="col-sm-offset-2 col-sm-10">
-                                                    <button class="btn btn-default" id="contactbtn" name="act" value="btnLogin">Login</button>
+          </div>
+          <div class="form-group">
+             <input type="password" class="form-control" id="pwd" name="txtPassword" placeholder="Password"
+                                    >
+          </div>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox"> Remember me
+            </label>
+          </div>
+          <button class="btn btn-default" id="contactbtn" name="act" value="btnLogin">Login</button>
                                                     <c:if test="${!empty(msg)}" >
                                                         <p style="color:red;">${msg}</p>
                                                     </c:if>
-                                                </div>
-                                            </div>
-                                        </form>
+          <a href="#">Forget password?</a>
+        </form>
+      </div>
+    </div>
+  </div>
 
 
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="js/jquery-3.1.0.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <!-- Preloader -->
+  <script type="text/javascript">
+    //<![CDATA[
+    $(window).on('load', function() { // makes sure the whole site is loaded
+        $('#status').fadeOut(); // will first fade out the loading animation
+        $('#preloader').delay(500).fadeOut('slow'); // will fade out the white DIV that covers the website.
+        $('body').delay(350).css({
+          'overflow': 'visible'
+        });
+      })
+      //]]>
+  </script>
+</body>
 
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <!--end of main content-->
-        <!--footer-->
-        <footer class="site-footer">
-            <div class="container">
-                <br>
-                <br>
-                <br>
-                <br>
-
-                <div class="bottom-footer">
-                    <div class="col-md-5">&copy Copyright of Group 5</div>
-                </div>
-
-            </div>
-        </footer>
-        <!--end of footer-->
-        <script src="js/jquery.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/jqBootstrapValidation.js"></script>
-    </body>
 </html>

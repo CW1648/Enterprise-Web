@@ -10,7 +10,7 @@ create procedure usp_Login
 	@uPassword varchar(50)
 as
 Begin
-	select userPass, userName, roleID from Users where userName = @user_name and userPass = @uPassword;
+	select * from Users where userName = @user_name and userPass = @uPassword;
 end
 go
 
@@ -45,5 +45,54 @@ begin
  end 
  go
 
+drop procedure usp_addArticles
+go
+create procedure usp_addArticles
+@articleTitle nvarchar(255),
+@articleContent nvarchar(255),
+@articlePicture nvarchar(max),
+@articleAuthor int,
+@articleFaculty int,
+@articleStatus VARCHAR,
+@submitted_at datetime,
+@updated_at datetime
+as
+begin
+insert into Articles values(@articleTitle,@articleContent,@articlePicture,@articleAuthor,@articleFaculty,@articleStatus,@submitted_at,@updated_at);
+end
+go
 
+drop procedure usp_getArticles
+go
+create procedure usp_getArticles
+@articleAuthor int
+as
+begin
+select*from Articles where articleAuthor=@articleAuthor
+end
+go
+
+drop procedure usp_getFaculties
+go
+create procedure usp_getFaculties
+as
+begin
+select*from Faculties
+end
+go
+
+drop procedure usp_updateArticles
+go
+create procedure usp_updateArticles
+@articleID int,
+@articleTitle nvarchar(255),
+@articleContent nvarchar(255),
+@articlePicture nvarchar(max),
+@updated_at datetime
+as
+begin
+update Articles set articleTitle=@articleTitle,articleContent=@articleContent,articlePicture=@articlePicture,
+updated_at=@updated_at where articleID=@articleID
+end
+go
 

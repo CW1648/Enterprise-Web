@@ -51,10 +51,10 @@ public class CMR_UsersDb {
 //                cmrUser.setUserName(rs.getString("User_name"));
 //                cmrUser.setMail(rs.getString("mail"));
 //                cmrUser.setRoleID(rs.getInt("Role_id"));
-                int userID = rs.getInt("User_id");
-                String userName = rs.getString("User_name");
-                String mail = rs.getString("mail");
-                int roleId = rs.getInt("Role_id");
+                int userID = rs.getInt("userID");
+                String userName = rs.getString("userName");
+                String mail = rs.getString("email");
+                int roleId = rs.getInt("roleID");
                 
                 cmrUser.setUserID(userID);
                 cmrUser.setUserName(userName);
