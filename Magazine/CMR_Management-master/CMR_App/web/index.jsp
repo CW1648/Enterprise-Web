@@ -21,7 +21,7 @@
   <!-- Custom fonts for this website -->
   <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
 
-  <style>
+<!--  <style>
     body {
       overflow: hidden;
     }
@@ -77,7 +77,7 @@
         transform: rotate(360deg);
       }
     }
-  </style>
+  </style>-->
 </head>
 
 <body>

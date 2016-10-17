@@ -28,7 +28,7 @@
         <servlet-name>AssignCourseServlet</servlet-name>
         <servlet-class>cmr.servlet.AssignCourseServlet</servlet-class>
     </servlet>
-     <servlet>
+    <servlet>
         <servlet-name>ApproveServlet</servlet-name>
         <servlet-class>cmr.servlet.ApproveServlet</servlet-class>
     </servlet>
@@ -48,6 +48,20 @@
         <servlet-name>GradeDistributionDataServlet</servlet-name>
         <servlet-class>cmr.servlet.GradeDistributionDataServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ArticlesServlet</servlet-name>
+        <servlet-class>cmr.servlet.ArticlesServlet</servlet-class>
+        <multipart-config>
+            <location>/tmp</location>
+            <max-file-size>20848820</max-file-size>
+            <max-request-size>418018841</max-request-size>
+            <file-size-threshold>1048576</file-size-threshold>
+        </multipart-config>
+    </servlet>
+    <servlet>
+        <servlet-name>FacultyServlet</servlet-name>
+        <servlet-class>cmr.servlet.FacultyServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CourseServlet</servlet-name>
         <url-pattern>/course</url-pattern>
@@ -64,7 +78,7 @@
         <servlet-name>AssignCourseServlet</servlet-name>
         <url-pattern>/assign</url-pattern>
     </servlet-mapping>
-     <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>ApproveServlet</servlet-name>
         <url-pattern>/approve</url-pattern>
     </servlet-mapping>
@@ -83,6 +97,14 @@
     <servlet-mapping>
         <servlet-name>GradeDistributionDataServlet</servlet-name>
         <url-pattern>/gradeDistributionData</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ArticlesServlet</servlet-name>
+        <url-pattern>/Articles</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FacultyServlet</servlet-name>
+        <url-pattern>/FacultyServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

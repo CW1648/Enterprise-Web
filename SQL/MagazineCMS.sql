@@ -41,16 +41,18 @@ create table Faculties(
 	fa_endDate datetime not null /* han chot nhan article, sau ngay nay se ko the submit duoc article nua */
 )
 go
+drop table Articles
+drop table comment
 create table Articles(
 	articleID int primary key identity(1,1),
 	articleTitle nvarchar(255) not null,
-	articleContent nvarchar(255) not null,
+	articleContent text not null,
 	articlePicture nvarchar(max),
 	articleAuthor int,
 	foreign key (articleAuthor) references Users(userID), /* author phai la 1 user */
 	articleFaculty int,
 	foreign key (articleFaculty) references Faculties(facultyID), /* article phai thuoc ve 1 faculty nao do */
-	articleStatus VARCHAR CONSTRAINT article_check CHECK (articleStatus IN ('Submitted','Approved')), /* check trang thai, chi co the la Submitted hoac Approved */
+	articleStatus VARCHAR(30), /* check trang thai, chi co the la Submitted hoac Approved */
 	submitted_at datetime,
 	updated_at datetime,	
 )
@@ -73,6 +75,7 @@ insert into Roles values('Marketing Coordinator');/* id =3 */
 insert into Roles values('Marketing Manager');/* id =4 */
 insert into Roles values('Guest');
 
+select*from Users
 
 insert into Users values('test','123456','M', GETDATE(),'chiasd94@gmail.com',null,null,1);
 insert into Users values('test1','123456','M', GETDATE(),'chiasd94@gmail.com',null,null,3);
@@ -84,11 +87,12 @@ insert into Users values('test6','123456','M', GETDATE(),'chiasd94@gmail.com',nu
 insert into Users values('test7','123456','M', GETDATE(),'chiasd94@gmail.com',null,null,2);
 insert into Users values('test9','21232f297a57a5a743894a0e4a801fc3','M', GETDATE(),'chiasd94@gmail.com',null,null,5);
 insert into Users values('test10','21232f297a57a5a743894a0e4a801fc3','M', GETDATE(),'chiasd94@gmail.com',null,null,1);
-
+insert into Users values('test11','21232f297a57a5a743894a0e4a801fc3','M', GETDATE(),'chiasd94@gmail.com',null,null,2);
 
 
 insert into Overall_process values(GETDATE(),2,GETDATE(),'2016-11-11');
 
+select*from Faculties
 insert into Faculties values('faculty1',GETDATE(),3,1,GETDATE(),'2016-11-01');
 insert into Faculties values('faculty2',GETDATE(),4,1,GETDATE(),'2016-11-01');
 
@@ -100,4 +104,6 @@ begin
 end
 
 exec usp_getAllUser
+
+select*from Articles
 

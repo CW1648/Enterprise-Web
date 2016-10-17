@@ -47,7 +47,7 @@ public class ArticlesDB {
     }
     
     public boolean Add_Articles(String articleTitle,String articleContent,InputStream articlePicture,int articleAuthor,int articleFaculty,String articleStatus){
-         Connection conn=null;
+         Connection conn = null;
          try {
             conn=ConnectionUtil.getConnection();
             CallableStatement cstmt=conn.prepareCall("{call usp_addArticles(?,?,?,?,?,?,?,?)}");
@@ -65,6 +65,7 @@ public class ArticlesDB {
                 return true;
             }
         } catch (Exception e) {
+            e.printStackTrace();
         }
         return false;
     }

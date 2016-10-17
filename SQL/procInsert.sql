@@ -49,7 +49,7 @@ drop procedure usp_addArticles
 go
 create procedure usp_addArticles
 @articleTitle nvarchar(255),
-@articleContent nvarchar(255),
+@articleContent text,
 @articlePicture nvarchar(max),
 @articleAuthor int,
 @articleFaculty int,
@@ -80,6 +80,7 @@ begin
 select*from Faculties
 end
 go
+exec usp_getFaculties
 
 drop procedure usp_updateArticles
 go
