@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 
@@ -211,179 +212,20 @@
                   <div class="table-responsive mailbox-messages">
                     <table class="table table-hover table-striped">
                       <tbody>
-                        <tr>
-                          <td>
-                            <input type="checkbox">
-                          </td>
-                          <td class="mailbox-name"><a href="Student_viewCon.html">View</a></td>
-                          <td class="mailbox-subject">Contribution's Title
-                          </td>
-                          <td class="mailbox-attachment"></td>
-                          <td class="mailbox-date">09/23/2016</td>
-                          <td class="mailbox-status">Approved</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <input type="checkbox">
-                          </td>
-                          <td class="mailbox-name"><a href="Student_viewCon.html">View</a></td>
-                          <td class="mailbox-subject">Contribution's Title
-                          </td>
-                          <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
-                          <td class="mailbox-date">09/23/2016</td>
-                          <td class="mailbox-status">Approved</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <input type="checkbox">
-                          </td>
-                          <td class="mailbox-name"><a href="Student_viewCon.html">View</a></td>
-                          <td class="mailbox-subject">Contribution's Title
-                          </td>
-                          <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
-                          <td class="mailbox-date">09/23/2016</td>
-                          <td class="mailbox-status">Approved</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <input type="checkbox">
-                          </td>
-                          <td class="mailbox-name"><a href="Student_viewCon.html">View</a></td>
-                          <td class="mailbox-subject">Contribution's Title
-                          </td>
-                          <td class="mailbox-attachment"></td>
-                          <td class="mailbox-date">09/23/2016</td>
-                          <td class="mailbox-status">Approved</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <input type="checkbox">
-                          </td>
-                          <td class="mailbox-name"><a href="Student_viewCon.html">View</a></td>
-                          <td class="mailbox-subject">Contribution's Title
-                          </td>
-                          <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
-                          <td class="mailbox-date">09/23/2016</td>
-                          <td class="mailbox-status">Approved</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <input type="checkbox">
-                          </td>
-                          <td class="mailbox-name"><a href="Student_viewCon.html">View</a></td>
-                          <td class="mailbox-subject">Contribution's Title
-                          </td>
-                          <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
-                          <td class="mailbox-date">09/23/2016</td>
-                          <td class="mailbox-status">Approved</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <input type="checkbox">
-                          </td>
-                          <td class="mailbox-name"><a href="Student_viewCon.html">View</a></td>
-                          <td class="mailbox-subject">Contribution's Title
-                          </td>
-                          <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
-                          <td class="mailbox-date">09/23/2016</td>
-                          <td class="mailbox-status">Approved</td>
-                        </tr>
+                        <c:forEach items="${listArt}" var="n">  
                         <tr>
                           <td>
                             <input type="checkbox">
                           </td>
 
-                          <td class="mailbox-name"><a href="Student_viewCon.html">View</a></td>
-                          <td class="mailbox-subject">Contribution's Title
-                          </td>
-                          <td class="mailbox-attachment"></td>
-                          <td class="mailbox-date">09/23/2016</td>
-                          <td class="mailbox-status">Approved</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <input type="checkbox">
-                          </td>
-
-                          <td class="mailbox-name"><a href="Student_viewCon.html">View</a></td>
-                          <td class="mailbox-subject">Contribution's Title
-                          </td>
-                          <td class="mailbox-attachment"></td>
-                          <td class="mailbox-date">09/23/2016</td>
-                          <td class="mailbox-status">Approved</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <input type="checkbox">
-                          </td>
-
-                          <td class="mailbox-name"><a href="Student_viewCon.html">View</a></td>
-                          <td class="mailbox-subject">Contribution's Title
-                          </td>
-                          <td class="mailbox-attachment"></td>
-                          <td class="mailbox-date">09/23/2016</td>
-                          <td class="mailbox-status">Approved</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <input type="checkbox">
-                          </td>
-
-                          <td class="mailbox-name"><a href="Student_viewCon.html">View</a></td>
-                          <td class="mailbox-subject">Contribution's Title
+                          <td class="mailbox-name"><a href="ShowArticles?act=view&id=${n.getArticleID()}">View</a></td>
+                          <td class="mailbox-subject">${n.getArticleTitle()}
                           </td>
                           <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
-                          <td class="mailbox-date">09/23/2016</td>
-                          <td class="mailbox-status">Approved</td>
+                          <td class="mailbox-date">${n.getSubmitted_at()}</td>
+                          <td class="mailbox-status">${n.getArticleStatus()}</td>
                         </tr>
-                        <tr>
-                          <td>
-                            <input type="checkbox">
-                          </td>
-
-                          <td class="mailbox-name"><a href="Student_viewCon.html">View</a></td>
-                          <td class="mailbox-subject">Contribution's Title
-                          </td>
-                          <td class="mailbox-attachment"></td>
-                          <td class="mailbox-date">09/23/2016</td>
-                          <td class="mailbox-status">Approved</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <input type="checkbox">
-                          </td>
-
-                          <td class="mailbox-name"><a href="Student_viewCon.html">View</a></td>
-                          <td class="mailbox-subject">Contribution's Title
-                          </td>
-                          <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
-                          <td class="mailbox-date">09/23/2016</td>
-                          <td class="mailbox-status">Approved</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <input type="checkbox">
-                          </td>
-
-                          <td class="mailbox-name"><a href="Student_viewCon.html">View</a></td>
-                          <td class="mailbox-subject">Contribution's Title
-                          </td>
-                          <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
-                          <td class="mailbox-date">09/23/2016</td>
-                          <td class="mailbox-status">Approved</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <input type="checkbox">
-                          </td>
-
-                          <td class="mailbox-name"><a href="Student_viewCon.html">View</a></td>
-                          <td class="mailbox-subject">Contribution's Title
-                          </td>
-                          <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
-                          <td class="mailbox-date">09/23/2016</td>
-                          <td class="mailbox-status">Approved</td>
-                        </tr>
+                        </c:forEach>
                       </tbody>
                     </table>
                     <!-- /.table -->

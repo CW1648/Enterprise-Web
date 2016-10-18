@@ -5,19 +5,30 @@
  */
 package cmr.servlet;
 
-import cmr.db.CourseDb;
+import cmr.db.ConnectionUtil;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import javax.servlet.RequestDispatcher;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Nguyen
+ * @author BUIVUHUECHI
  */
-public class CourseServlet extends HttpServlet {
+@WebServlet(name = "ImageServlet", urlPatterns = {"/ImageServlet"})
+public class ImageServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,17 +40,27 @@ public class CourseServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
-
-        String action = request.getParameter("act");
-
-        if (action != null && action.equals("btnAddNewCourse")) {
-            addNewCourse(request, response);
-            return;
+        Connection conn=ConnectionUtil.getConnection();
+        int id=Integer.parseInt(request.getParameter("id"));
+        PreparedStatement ps = conn.prepareStatement("select articlePicture from Articles where articleID = ?");
+        ps.setInt(1, id);
+        ResultSet rs = ps.executeQuery();
+        rs.next();
+        
+        response.setContentType("image/jpeg");
+        byte[] b=rs.getBytes("articlePicture");
+        InputStream is=new ByteArrayInputStream(b);
+       
+        //InputStream is= c.getPhoto();
+        //is.read(b);
+        try (OutputStream os = response.getOutputStream()) {
+            //is.read(b);
+            is.read();
+            os.write(b);
         }
-        request.getRequestDispatcher("admin.jsp").forward(request, response);
-
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -54,7 +75,11 @@ public class CourseServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(ImageServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -68,7 +93,11 @@ public class CourseServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(ImageServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -80,34 +109,5 @@ public class CourseServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
-    private void addNewCourse(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        CourseDb db = new CourseDb();
-        String cId = request.getParameter("txtcID");
-        String cName = request.getParameter("txtcName");
-        String description = request.getParameter("txtDescription");
-        String startDate = request.getParameter("txtcStartDate");
-        String endDate = request.getParameter("txtcEndDate");
-
-        if (cId.equals("") && cName.equals("") && startDate.equals("") && endDate.equals("")) {
-            request.setAttribute("msgR", "Something wrong! Add New Course Fail");
-            RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/admin.jsp");
-            dispatcher.forward(request, response);
-            return;
-        } else {
-            boolean result = db.addNewCourse(cId, cName, description, startDate, endDate);
-            if (result) {
-                request.setAttribute("msgBlue", "New Course Added");
-                RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/admin.jsp");
-                dispatcher.forward(request, response);
-                return;
-            } else {
-                request.setAttribute("msgR", "Add New course Fail");
-                RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/admin.jsp");
-                dispatcher.forward(request, response);
-                return;
-            }
-        }
-    }
 
 }

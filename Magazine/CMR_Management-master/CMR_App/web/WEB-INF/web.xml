@@ -13,40 +13,12 @@
         <param-value>sa</param-value>
     </context-param>
     <servlet>
-        <servlet-name>CourseServlet</servlet-name>
-        <servlet-class>cmr.servlet.CourseServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>CMRServlet</servlet-name>
-        <servlet-class>cmr.servlet.CMRServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>CMR_UsersServlet</servlet-name>
         <servlet-class>cmr.servlet.CMR_UsersServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AssignCourseServlet</servlet-name>
         <servlet-class>cmr.servlet.AssignCourseServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ApproveServlet</servlet-name>
-        <servlet-class>cmr.servlet.ApproveServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ShowCMRServlet</servlet-name>
-        <servlet-class>cmr.servlet.ShowCMRServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ShowCLCourse</servlet-name>
-        <servlet-class>cmr.servlet.ShowCLCourse</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>StatisticDataServlet</servlet-name>
-        <servlet-class>cmr.servlet.StatisticDataServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>GradeDistributionDataServlet</servlet-name>
-        <servlet-class>cmr.servlet.GradeDistributionDataServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ArticlesServlet</servlet-name>
@@ -62,41 +34,13 @@
         <servlet-name>FacultyServlet</servlet-name>
         <servlet-class>cmr.servlet.FacultyServlet</servlet-class>
     </servlet>
-    <servlet-mapping>
-        <servlet-name>CourseServlet</servlet-name>
-        <url-pattern>/course</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>CMRServlet</servlet-name>
-        <url-pattern>/cmr</url-pattern>
-    </servlet-mapping>
+    <servlet>
+        <servlet-name>ShowArticlesServlet</servlet-name>
+        <servlet-class>cmr.servlet.ShowArticlesServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CMR_UsersServlet</servlet-name>
         <url-pattern>/cmr_users</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>AssignCourseServlet</servlet-name>
-        <url-pattern>/assign</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ApproveServlet</servlet-name>
-        <url-pattern>/approve</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ShowCMRServlet</servlet-name>
-        <url-pattern>/showCMR</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ShowCLCourse</servlet-name>
-        <url-pattern>/showCLCourse</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>StatisticDataServlet</servlet-name>
-        <url-pattern>/statisticData</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>GradeDistributionDataServlet</servlet-name>
-        <url-pattern>/gradeDistributionData</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ArticlesServlet</servlet-name>
@@ -105,6 +49,10 @@
     <servlet-mapping>
         <servlet-name>FacultyServlet</servlet-name>
         <url-pattern>/FacultyServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ShowArticlesServlet</servlet-name>
+        <url-pattern>/ShowArticles</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

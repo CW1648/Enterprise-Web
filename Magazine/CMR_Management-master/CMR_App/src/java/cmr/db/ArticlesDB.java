@@ -6,6 +6,7 @@
 package cmr.db;
 
 import cmr.entity.Articles;
+import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -33,12 +34,14 @@ public class ArticlesDB {
                 String articleTitle=rs.getString("articleTitle");
                 String articleContent=rs.getString("articleContent");
                 //String =rs.getString("articleTitle");
+                byte[] b=rs.getBytes("articlePicture");
+                InputStream is=new ByteArrayInputStream(b);
                 int articleAuthor=rs.getInt("articleAuthor");
                 int articleFaculty=rs.getInt("articleFaculty");
                 String articleStatus=rs.getString("articleStatus");
                 Date submitted_at=rs.getDate("submitted_at");
                 Date updated_at=rs.getDate("updated_at");
-                listAr.add(new Articles(A_id, articleTitle, articleContent, null, articleAuthor, articleFaculty, articleStatus, submitted_at, updated_at));
+                listAr.add(new Articles(A_id, articleTitle, articleContent, is, articleAuthor, articleFaculty, articleStatus, submitted_at, updated_at));
             }
         } catch (Exception e) {
             e.printStackTrace();
