@@ -103,35 +103,53 @@ public class CMR_UsersServlet extends HttpServlet {
             CMR_Users cmrUsers = new CMR_Users(userName, password);
             db.login(cmrUsers);
             if (cmrUsers.getUserName() != null) {
-                if (cmrUsers.getRoleID() == 1) {
-//                db.SessionId(session.getId(), email); problem?
-                    session.setAttribute("cmrUsers", cmrUsers);
-                    Cookie cookie = new Cookie("txtUserName", userName);
-                    response.addCookie(cookie);
-                    RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/course");
-                    dispatcher.forward(request, response);
-                } else if (cmrUsers.getRoleID() == 2) {
-                    //                db.SessionId(session.getId(), email); problem?
-                    session.setAttribute("cmrUsers", cmrUsers);
-                    Cookie cookie = new Cookie("txtUserName", userName);
-                    response.addCookie(cookie);
-                    RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/CLNewCourse.jsp");
-                    dispatcher.forward(request, response);
-                } else if (cmrUsers.getRoleID() == 3) {
-                    session.setAttribute("cmrUsers", cmrUsers);
-                    Cookie cookie = new Cookie("txtUserName", userName);
-                    response.addCookie(cookie);
-                    RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/showCMR");
-                    dispatcher.forward(request, response);
-                } else if (cmrUsers.getRoleID() == 4) {
-                    session.setAttribute("cmrUsers", cmrUsers);
-                    Cookie cookie = new Cookie("txtUserName", userName);
-                    response.addCookie(cookie);
-                    RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/approve");
-                    dispatcher.forward(request, response);
-                } else {
-                    request.setAttribute("msg", "Login fail");
-                    request.getRequestDispatcher("index.jsp").forward(request, response);
+                switch (cmrUsers.getRoleID()) {
+                    case 1:
+                        {
+                            //                db.SessionId(session.getId(), email); problem?
+                            session.setAttribute("cmrUsers", cmrUsers);
+                            Cookie cookie = new Cookie("txtUserName", userName);
+                            Cookie cookie1=new Cookie("userid", String.valueOf(cmrUsers.getUserID()));
+                            response.addCookie(cookie);
+                            response.addCookie(cookie1);
+                            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/course");
+                            dispatcher.forward(request, response);
+                            break;
+                        }
+                    case 2:
+                        {
+                            //                db.SessionId(session.getId(), email); problem?
+                            session.setAttribute("cmrUsers", cmrUsers);
+                            Cookie cookie = new Cookie("txtUserName", userName);
+                            Cookie cookie1=new Cookie("userid", String.valueOf(cmrUsers.getUserID()));
+                            response.addCookie(cookie);
+                            response.addCookie(cookie1);
+                            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Student_index.jsp");
+                            dispatcher.forward(request, response);
+                            break;
+                        }
+                    case 3:
+                        {
+                            session.setAttribute("cmrUsers", cmrUsers);
+                            Cookie cookie = new Cookie("txtUserName", userName);
+                            response.addCookie(cookie);
+                            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/showCMR");
+                            dispatcher.forward(request, response);
+                            break;
+                        }
+                    case 4:
+                        {
+                            session.setAttribute("cmrUsers", cmrUsers);
+                            Cookie cookie = new Cookie("txtUserName", userName);
+                            response.addCookie(cookie);
+                            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/approve");
+                            dispatcher.forward(request, response);
+                            break;
+                        }
+                    default:
+                        request.setAttribute("msg", "Login fail");
+                        request.getRequestDispatcher("index.jsp").forward(request, response);
+                        break;
                 }
 
             } else {

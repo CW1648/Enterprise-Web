@@ -73,4 +73,25 @@ public class ArticlesDB {
         return false;
     }
     
+    public boolean Update_Articles(Articles item){
+        Connection conn = null;
+        try {
+            conn=ConnectionUtil.getConnection();
+            CallableStatement cstmt=conn.prepareCall("{call usp_updateArticles(?,?,?,?,?)}");
+            cstmt.setInt("articleID", item.getArticleID());
+            cstmt.setString("articleTitle", item.getArticleTitle());
+            cstmt.setString("articleContent", item.getArticleContent());
+            cstmt.setBinaryStream("articlePicture", item.getArticlePicture());
+            java.sql.Date sqlDate = new java.sql.Date(new java.util.Date().getTime());
+            cstmt.setDate("updated_at", sqlDate);
+            int result=cstmt.executeUpdate();
+            if (result > 0) {
+                return true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+    
 }

@@ -139,7 +139,7 @@
     <section class="content-header">
       <h1>Dashboard<small>Control panel</small></h1>
       <ol class="breadcrumb">
-        <li><a href="Student_index.html"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="Student_index.jsp"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#"><i class="fa fa-file-text"></i> Contributions</a></li>
         <li class="active">View Contribution</li>
       </ol>
@@ -149,7 +149,7 @@
     <section class="content">
       <div class="row">
         <div class="col-md-3">
-          <a href="Student_viewAllCon.html" class="btn btn-primary btn-block margin-bottom">Back</a>
+          <a href="/CMR_App/ShowArticles" class="btn btn-primary btn-block margin-bottom">Back</a>
 
           <div class="box box-solid">
             <div class="box-header with-border">
@@ -162,7 +162,7 @@
             </div>
             <div class="box-body no-padding">
               <ul class="nav nav-pills nav-stacked">
-                <li><a href="Student_viewAllCon.html"><i class="fa fa-inbox"></i> Inbox</a></li>
+                <li><a href="/CMR_App/ShowArticles"><i class="fa fa-inbox"></i> Inbox</a></li>
               </ul>
             </div>
             <!-- /.box-body -->
@@ -343,7 +343,7 @@
             </div>
             <!-- /.box-footer -->
             <div class="box-footer">
-              <a href="Student_editCon.html" class="btn btn-default" role="button"><i class="fa fa-edit"></i> Edit</a>
+              <a href="ShowArticles?act=edit&id=${item.getArticleID()}" class="btn btn-default" role="button"><i class="fa fa-edit"></i> Edit</a>
             </div>
             <!-- /.box-footer -->
           </div>

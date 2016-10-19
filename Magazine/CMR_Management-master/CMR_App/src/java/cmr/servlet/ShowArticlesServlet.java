@@ -20,9 +20,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 /**
  *
@@ -42,40 +44,78 @@ public class ShowArticlesServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
-        ArticlesDB db=new ArticlesDB();
-        List<Articles> listArt=db.getAllArticles(12);
-        
+        ArticlesDB db = new ArticlesDB();
+        int studentid =0;
+        Cookie[] cookies = request.getCookies();
+
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if (cookie.getName().equals("userid")) {
+                    //do something
+                    //value can be retrieved using #cookie.getValue()
+                  studentid=Integer.parseInt(cookie.getValue());  
+                }
+            }
+        }
+        List<Articles> listArt = db.getAllArticles(studentid);
+
         String action = request.getParameter("act");
-        if(action==null){
+        if (action == null) {
             request.setAttribute("listArt", listArt);
             RequestDispatcher dispatcher = request.getRequestDispatcher("Student_viewAllCon.jsp");
             dispatcher.forward(request, response);
-        }else if(action.equals("view")){
-            int id=Integer.parseInt(request.getParameter("id"));
-             Connection conn=ConnectionUtil.getConnection();
-        PreparedStatement ps = conn.prepareStatement("select * from Articles where articleID = ?");
-        ps.setInt(1, id);
-         Articles item=new Articles();
-            ResultSet rs=ps.executeQuery();
+        } else if (action.equals("view")) {
+            int id = Integer.parseInt(request.getParameter("id"));
+            Connection conn = ConnectionUtil.getConnection();
+            PreparedStatement ps = conn.prepareStatement("select * from Articles where articleID = ?");
+            ps.setInt(1, id);
+            Articles item = new Articles();
+            ResultSet rs = ps.executeQuery();
             rs.next();
-            int A_id=rs.getInt(1);
-                String articleTitle=rs.getString("articleTitle");
-                String articleContent=rs.getString("articleContent");
-                //String =rs.getString("articleTitle");
-                int articleAuthor=rs.getInt("articleAuthor");
-                int articleFaculty=rs.getInt("articleFaculty");
-                String articleStatus=rs.getString("articleStatus");
-                Date submitted_at=rs.getDate("submitted_at");
-                Date updated_at=rs.getDate("updated_at");
+            int A_id = rs.getInt(1);
+            String articleTitle = rs.getString("articleTitle");
+            String articleContent = rs.getString("articleContent");
+            //String =rs.getString("articleTitle");
+            int articleAuthor = rs.getInt("articleAuthor");
+            int articleFaculty = rs.getInt("articleFaculty");
+            String articleStatus = rs.getString("articleStatus");
+            Date submitted_at = rs.getDate("submitted_at");
+            Date updated_at = rs.getDate("updated_at");
             item.setArticleID(A_id);
             item.setArticleTitle(articleTitle);
             item.setArticleContent(articleContent);
             request.setAttribute("item", item);
             RequestDispatcher dispatcher = request.getRequestDispatcher("Student_viewCon.jsp");
             dispatcher.forward(request, response);
-        
+
+        } else if (action.equals("edit")) {
+            int id = Integer.parseInt(request.getParameter("id"));
+            request.setAttribute("editID", id);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("Student_editCon.jsp");
+            dispatcher.forward(request, response);
+        } else if (action.equals("update")) {
+            int id = Integer.parseInt(request.getParameter("id"));
+            Articles updateitem = new Articles();
+            updateitem.setArticleID(id);
+            updateitem.setArticleTitle(request.getParameter("title"));
+            updateitem.setArticleContent(request.getParameter("content"));
+            Part filePart = request.getPart("attachment");
+            if (filePart != null) {
+                // prints out some information for debugging
+                System.out.println(filePart.getName());
+                System.out.println(filePart.getSize());
+                System.out.println(filePart.getContentType());
+
+                // obtains input stream of the upload file
+                updateitem.setArticlePicture(filePart.getInputStream());
+            }
+            if (db.Update_Articles(updateitem)) {
+//              response.sendRedirect("/CMR_App/ShowArticles");
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ShowArticles");
+                dispatcher.forward(request, response);
+            }
         }
-        
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

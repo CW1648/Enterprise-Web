@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -39,8 +40,20 @@ public class ArticlesServlet extends HttpServlet {
         InputStream is = null;
 
         Part filePart = request.getPart("photo");
+        
+        int author=0;
+        Cookie[] cookies = request.getCookies();
 
-        int author = 12;
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if (cookie.getName().equals("userid")) {
+                    //do something
+                    //value can be retrieved using #cookie.getValue()
+                  author =Integer.parseInt(cookie.getValue());  
+                }
+            }
+        }
+        
         int falcuty = Integer.parseInt(request.getParameter("Faculty"));
         String status = "Submitted";
         String term = request.getParameter("term");
