@@ -1,18 +1,17 @@
 <%-- 
-    Document   : Student_viewAllCon
-    Created on : Oct 14, 2016, 8:04:19 AM
+    Document   : MC_viewAllCon
+    Created on : Oct 20, 2016, 7:39:56 PM
     Author     : BUIVUHUECHI
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>FPT Greenwich | Student</title>
+  <title>FPT Greenwich | Marketing Coordinator</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -45,96 +44,95 @@
     <div class="wrapper">
 
       <header class="main-header">
-        <!-- Logo -->
-        <a href="index.html" class="logo">
-          <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>F</b>GR</span>
-          <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b>FPT</b> Greenwich</span>
-        </a>
-        <!-- Header Navbar: style can be found in header.less -->
-        <nav class="navbar navbar-static-top">
-          <!-- Sidebar toggle button-->
-          <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-            <span class="sr-only">Toggle navigation</span>
+          <!-- Logo -->
+          <a href="MC_index.html" class="logo">
+              <!-- mini logo for sidebar mini 50x50 pixels -->
+              <span class="logo-mini"><b>F</b>GR</span>
+              <!-- logo for regular state and mobile devices -->
+              <span class="logo-lg"><b>FPT</b> Greenwich</span>
           </a>
+          <!-- Header Navbar: style can be found in header.less -->
+          <nav class="navbar navbar-static-top">
+              <!-- Sidebar toggle button-->
+              <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                  <span class="sr-only">Toggle navigation</span>
+              </a>
 
-          <div class="navbar-custom-menu">
-            <ul class="nav navbar-nav">
-              <!-- User Account: style can be found in dropdown.less -->
-              <li class="dropdown user user-menu">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                  <span class="hidden-xs">Ryserg Tung</span>
-                </a>
-                <ul class="dropdown-menu">
-                  <!-- User image -->
-                  <li class="user-header">
-                    <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+              <div class="navbar-custom-menu">
+                  <ul class="nav navbar-nav">
+                      <!-- User Account: style can be found in dropdown.less -->
+                      <li class="dropdown user user-menu">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                              <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                              <span class="hidden-xs">Ryserg Tung</span>
+                          </a>
+                          <ul class="dropdown-menu">
+                              <!-- User image -->
+                              <li class="user-header">
+                                  <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
-                    <p>
-                      Ryserg Tung
-                      <br />
-                      <span>Student</span>
-                    </p>
-                  </li>
-                  <!-- Menu Footer-->
-                  <li class="user-footer">
-                    <div class="pull-left">
-                      <a href="#" class="btn btn-default btn-flat">Profile</a>
-                    </div>
-                    <div class="pull-right">
-                      <a href="#" class="btn btn-default btn-flat">Sign out</a>
-                    </div>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </nav>
+                                  <p>
+                                      Ryserg Tung
+                                      <br />
+                                      <span>Marketing Coordinator</span>
+                                  </p>
+                              </li>
+                              <!-- Menu Footer-->
+                              <li class="user-footer">
+                                  <div class="pull-left">
+                                      <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                  </div>
+                                  <div class="pull-right">
+                                      <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                  </div>
+                              </li>
+                          </ul>
+                      </li>
+                  </ul>
+              </div>
+          </nav>
       </header>
       <!-- Left side column. contains the logo and sidebar -->
       <aside class="main-sidebar">
-        <!-- sidebar: style can be found in sidebar.less -->
-        <section class="sidebar">
-          <!-- Sidebar user panel -->
-          <div class="user-panel">
-            <div class="pull-left image">
-              <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-            </div>
-            <div class="pull-left info">
-              <p>Ryserg Tung</p>
-              <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-            </div>
-          </div>
-          <!-- search form -->
-          <form action="#" method="get" class="sidebar-form">
-            <div class="input-group">
-              <input type="text" name="q" class="form-control" placeholder="Search...">
-              <span class="input-group-btn">
+          <!-- sidebar: style can be found in sidebar.less -->
+          <section class="sidebar">
+              <!-- Sidebar user panel -->
+              <div class="user-panel">
+                  <div class="pull-left image">
+                      <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                  </div>
+                  <div class="pull-left info">
+                      <p>Ryserg Tung</p>
+                      <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                  </div>
+              </div>
+              <!-- search form -->
+              <form action="#" method="get" class="sidebar-form">
+                  <div class="input-group">
+                      <input type="text" name="q" class="form-control" placeholder="Search...">
+                      <span class="input-group-btn">
               <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
               </button>
             </span>
-            </div>
-          </form>
-          <!-- /.search form -->
-          <!-- sidebar menu: : style can be found in sidebar.less -->
-          <ul class="sidebar-menu">
-            <li class="header">MAIN NAVIGATION</li>
-            <li class="treeview">
-              <a href="#">
-                <i class="fa fa-file-text"></i>
-                <span>Contributions</span>
-                <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="/CMR_App/FacultyServlet"><i class="fa fa-circle-o"></i> Add New Contributions</a></li>
-                <li><a href="/CMR_App/ShowArticles"><i class="fa fa-circle-o"></i> View All Contributions</a></li>
+                  </div>
+              </form>
+              <!-- /.search form -->
+              <!-- sidebar menu: : style can be found in sidebar.less -->
+              <ul class="sidebar-menu">
+                  <li class="header">MAIN NAVIGATION</li>
+                  <li class="treeview">
+                      <a href="#">
+                          <i class="fa fa-laptop"></i>
+                          <span>Faculties</span>
+                          <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+                      </a>
+                      <ul class="treeview-menu">
+                          <li><a href="MC_viewAllFaculties.html"><i class="fa fa-circle-o"></i> View All Faculties</a></li>
+                      </ul>
+                  </li>
               </ul>
-            </li>
-          </ul>
-        </section>
-        <!-- /.sidebar -->
+          </section>
+          <!-- /.sidebar -->
       </aside>
 
       <!-- Content Wrapper. Contains page content -->
@@ -143,9 +141,9 @@
         <section class="content-header">
           <h1>Dashboard<small>Control panel</small></h1>
           <ol class="breadcrumb">
-            <li><a href="Student_index.html"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="#"><i class="fa fa-file-text"></i> Contributions</a></li>
-            <li class="active">View All Contributions</li>
+            <li><a href="MC_index.html"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="MC_viewAllFaculties.html"><i class="fa fa-laptop"></i> Faculties</a></li>
+            <li class="active">View Contributions</li>
           </ol>
         </section>
 
@@ -153,8 +151,7 @@
         <section class="content">
           <div class="row">
             <div class="col-md-3">
-              
-              <a href="/CMR_App/FacultyServlet" class="btn btn-primary btn-block margin-bottom">Add New Contribution</a>
+              <a href="MC_viewAllFaculties.html" class="btn btn-primary btn-block margin-bottom">Back to View All Faculties</a>
 
               <div class="box box-solid">
                 <div class="box-header with-border">
@@ -212,20 +209,179 @@
                   <div class="table-responsive mailbox-messages">
                     <table class="table table-hover table-striped">
                       <tbody>
-                        <c:forEach items="${listArt}" var="n">  
+                        <tr>
+                          <td>
+                            <input type="checkbox">
+                          </td>
+                          <td class="mailbox-name"><a href="MC_viewCon.html">Ryserg Tung</a></td>
+                          <td class="mailbox-subject">Contribution's Title
+                          </td>
+                          <td class="mailbox-attachment"></td>
+                          <td class="mailbox-date">09/23/2016</td>
+                          <td class="mailbox-status">Approved</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <input type="checkbox">
+                          </td>
+                          <td class="mailbox-name"><a href="MC_viewCon.html">Ryserg Tung</a></td>
+                          <td class="mailbox-subject">Contribution's Title
+                          </td>
+                          <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+                          <td class="mailbox-date">09/23/2016</td>
+                          <td class="mailbox-status">Approved</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <input type="checkbox">
+                          </td>
+                          <td class="mailbox-name"><a href="MC_viewCon.html">Ryserg Tung</a></td>
+                          <td class="mailbox-subject">Contribution's Title
+                          </td>
+                          <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+                          <td class="mailbox-date">09/23/2016</td>
+                          <td class="mailbox-status">Approved</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <input type="checkbox">
+                          </td>
+                          <td class="mailbox-name"><a href="MC_viewCon.html">Ryserg Tung</a></td>
+                          <td class="mailbox-subject">Contribution's Title
+                          </td>
+                          <td class="mailbox-attachment"></td>
+                          <td class="mailbox-date">09/23/2016</td>
+                          <td class="mailbox-status">Approved</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <input type="checkbox">
+                          </td>
+                          <td class="mailbox-name"><a href="MC_viewCon.html">Ryserg Tung</a></td>
+                          <td class="mailbox-subject">Contribution's Title
+                          </td>
+                          <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+                          <td class="mailbox-date">09/23/2016</td>
+                          <td class="mailbox-status">Approved</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <input type="checkbox">
+                          </td>
+                          <td class="mailbox-name"><a href="MC_viewCon.html">Ryserg Tung</a></td>
+                          <td class="mailbox-subject">Contribution's Title
+                          </td>
+                          <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+                          <td class="mailbox-date">09/23/2016</td>
+                          <td class="mailbox-status">Approved</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <input type="checkbox">
+                          </td>
+                          <td class="mailbox-name"><a href="MC_viewCon.html">Ryserg Tung</a></td>
+                          <td class="mailbox-subject">Contribution's Title
+                          </td>
+                          <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+                          <td class="mailbox-date">09/23/2016</td>
+                          <td class="mailbox-status">Approved</td>
+                        </tr>
                         <tr>
                           <td>
                             <input type="checkbox">
                           </td>
 
-                          <td class="mailbox-name"><a href="ShowArticles?act=view&id=${n.getArticleID()}">View</a></td>
-                          <td class="mailbox-subject">${n.getArticleTitle()}
+                          <td class="mailbox-name"><a href="MC_viewCon.html">Ryserg Tung</a></td>
+                          <td class="mailbox-subject">Contribution's Title
+                          </td>
+                          <td class="mailbox-attachment"></td>
+                          <td class="mailbox-date">09/23/2016</td>
+                          <td class="mailbox-status">Approved</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <input type="checkbox">
+                          </td>
+
+                          <td class="mailbox-name"><a href="MC_viewCon.html">Ryserg Tung</a></td>
+                          <td class="mailbox-subject">Contribution's Title
+                          </td>
+                          <td class="mailbox-attachment"></td>
+                          <td class="mailbox-date">09/23/2016</td>
+                          <td class="mailbox-status">Approved</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <input type="checkbox">
+                          </td>
+
+                          <td class="mailbox-name"><a href="MC_viewCon.html">Ryserg Tung</a></td>
+                          <td class="mailbox-subject">Contribution's Title
+                          </td>
+                          <td class="mailbox-attachment"></td>
+                          <td class="mailbox-date">09/23/2016</td>
+                          <td class="mailbox-status">Approved</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <input type="checkbox">
+                          </td>
+
+                          <td class="mailbox-name"><a href="MC_viewCon.html">Ryserg Tung</a></td>
+                          <td class="mailbox-subject">Contribution's Title
                           </td>
                           <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
-                          <td class="mailbox-date">${n.getSubmitted_at()}</td>
-                          <td class="mailbox-status">${n.getArticleStatus()}</td>
+                          <td class="mailbox-date">09/23/2016</td>
+                          <td class="mailbox-status">Approved</td>
                         </tr>
-                        </c:forEach>
+                        <tr>
+                          <td>
+                            <input type="checkbox">
+                          </td>
+
+                          <td class="mailbox-name"><a href="MC_viewCon.html">Ryserg Tung</a></td>
+                          <td class="mailbox-subject">Contribution's Title
+                          </td>
+                          <td class="mailbox-attachment"></td>
+                          <td class="mailbox-date">09/23/2016</td>
+                          <td class="mailbox-status">Approved</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <input type="checkbox">
+                          </td>
+
+                          <td class="mailbox-name"><a href="MC_viewCon.html">Ryserg Tung</a></td>
+                          <td class="mailbox-subject">Contribution's Title
+                          </td>
+                          <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+                          <td class="mailbox-date">09/23/2016</td>
+                          <td class="mailbox-status">Approved</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <input type="checkbox">
+                          </td>
+
+                          <td class="mailbox-name"><a href="MC_viewCon.html">Ryserg Tung</a></td>
+                          <td class="mailbox-subject">Contribution's Title
+                          </td>
+                          <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+                          <td class="mailbox-date">09/23/2016</td>
+                          <td class="mailbox-status">Approved</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <input type="checkbox">
+                          </td>
+
+                          <td class="mailbox-name"><a href="MC_viewCon.html">Ryserg Tung</a></td>
+                          <td class="mailbox-subject">Contribution's Title
+                          </td>
+                          <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+                          <td class="mailbox-date">09/23/2016</td>
+                          <td class="mailbox-status">Approved</td>
+                        </tr>
                       </tbody>
                     </table>
                     <!-- /.table -->
@@ -509,4 +665,3 @@
 </body>
 
 </html>
-

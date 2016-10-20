@@ -132,8 +132,10 @@ public class CMR_UsersServlet extends HttpServlet {
                         {
                             session.setAttribute("cmrUsers", cmrUsers);
                             Cookie cookie = new Cookie("txtUserName", userName);
+                            Cookie cookie1=new Cookie("userid", String.valueOf(cmrUsers.getUserID()));
                             response.addCookie(cookie);
-                            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/showCMR");
+                            response.addCookie(cookie1);
+                            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/MC_index.jsp");
                             dispatcher.forward(request, response);
                             break;
                         }

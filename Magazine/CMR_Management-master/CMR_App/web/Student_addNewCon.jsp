@@ -130,8 +130,8 @@
               <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="Student_addNewCon.html"><i class="fa fa-circle-o"></i> Add New Contributions</a></li>
-              <li><a href="Student_viewAllCon.html"><i class="fa fa-circle-o"></i> View All Contributions</a></li>
+              <li><a href="/CMR_App/FacultyServlet"><i class="fa fa-circle-o"></i> Add New Contributions</a></li>
+              <li><a href="/CMR_App/ShowArticles"><i class="fa fa-circle-o"></i> View All Contributions</a></li>
             </ul>
           </li>
         </ul>
@@ -155,7 +155,7 @@
       <section class="content">
         <div class="row">
           <div class="col-md-3">
-            <a href="Student_viewAllCon.html" class="btn btn-primary btn-block margin-bottom">Back</a>
+            <a href="/CMR_App/ShowArticles" class="btn btn-primary btn-block margin-bottom">Back</a>
 
             <div class="box box-solid">
               <div class="box-header with-border">
@@ -168,7 +168,7 @@
               </div>
               <div class="box-body no-padding">
                 <ul class="nav nav-pills nav-stacked">
-                  <li><a href="Student_viewAllCon.html"><i class="fa fa-inbox"></i> Inbox</a></li>
+                  <li><a href="/CMR_App/ShowArticles"><i class="fa fa-inbox"></i> Inbox</a></li>
                 </ul>
               </div>
               <!-- /.box-body -->

@@ -89,12 +89,16 @@ insert into Users values('test9','21232f297a57a5a743894a0e4a801fc3','M', GETDATE
 insert into Users values('test10','21232f297a57a5a743894a0e4a801fc3','M', GETDATE(),'chiasd94@gmail.com',null,null,1);
 insert into Users values('test11','21232f297a57a5a743894a0e4a801fc3','M', GETDATE(),'chiasd94@gmail.com',null,null,2);
 
+update Users set userPass='21232f297a57a5a743894a0e4a801fc3' where userPass='123456';
 
-insert into Overall_process values(GETDATE(),2,GETDATE(),'2016-11-11');
+insert into Overall_process values(GETDATE(),3,GETDATE(),'2016-11-11');
+
+
 
 select*from Faculties
-insert into Faculties values('faculty1',GETDATE(),3,1,GETDATE(),'2016-11-01');
-insert into Faculties values('faculty2',GETDATE(),4,1,GETDATE(),'2016-11-01');
+insert into Faculties values('faculty1',GETDATE(),2,1,GETDATE(),'2016-11-01');
+insert into Faculties values('faculty2',GETDATE(),2,1,GETDATE(),'2016-11-01');
+
 
 
 create procedure usp_getAllUser
@@ -107,3 +111,5 @@ exec usp_getAllUser
 
 select*from Articles
 
+
+select * from Articles where articleID = 1

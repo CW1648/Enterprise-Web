@@ -97,3 +97,32 @@ updated_at=@updated_at where articleID=@articleID
 end
 go
 
+drop procedure usp_getOverall_process
+go
+create procedure usp_getOverall_process
+as
+begin
+select*from Overall_process
+end
+
+drop procedure usp_getOverall_process
+go
+create procedure usp_getOverall_process
+as
+begin
+select*from Overall_process
+end
+
+drop procedure usp_getFaculties_by_ID
+go
+create procedure usp_getFaculties_by_ID
+@op_ID int,
+@mc_ID int
+as
+begin
+select*from Faculties where op_ID=@op_ID and mc_ID=@mc_ID
+end
+
+
+
+end
