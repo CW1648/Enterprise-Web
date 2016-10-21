@@ -51,7 +51,7 @@
 
         <header class="main-header">
             <!-- Logo -->
-            <a href="MC_index.html" class="logo">
+            <a href="MC_index.jsp" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini"><b>F</b>GR</span>
                 <!-- logo for regular state and mobile devices -->
@@ -133,7 +133,7 @@
                             <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="MC_viewAllFaculties.html"><i class="fa fa-circle-o"></i> View All Faculties</a></li>
+                            <li><a href="Process?act=process"><i class="fa fa-circle-o"></i> View All Faculties</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -147,7 +147,7 @@
             <section class="content-header">
                 <h1>Dashboard<small>Control panel</small></h1>
                 <ol class="breadcrumb">
-                    <li><a href="Student_index.html"><i class="fa fa-dashboard"></i> Home</a></li>
+                    <li><a href="MC_index.jsp"><i class="fa fa-dashboard"></i> Home</a></li>
                     <li class="active">Dashboard</li>
                 </ol>
             </section>

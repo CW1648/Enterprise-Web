@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 
@@ -141,8 +142,8 @@
         <section class="content-header">
           <h1>Dashboard<small>Control panel</small></h1>
           <ol class="breadcrumb">
-            <li><a href="MC_index.html"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="MC_viewAllFaculties.html"><i class="fa fa-laptop"></i> Faculties</a></li>
+            <li><a href="MC_index.jsp"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="Process?act=process"><i class="fa fa-laptop"></i> Faculties</a></li>
             <li class="active">View Contributions</li>
           </ol>
         </section>
@@ -151,7 +152,7 @@
         <section class="content">
           <div class="row">
             <div class="col-md-3">
-              <a href="MC_viewAllFaculties.html" class="btn btn-primary btn-block margin-bottom">Back to View All Faculties</a>
+              <a href="Process?act=process" class="btn btn-primary btn-block margin-bottom">Back to View All Faculties</a>
 
               <div class="box box-solid">
                 <div class="box-header with-border">
@@ -209,179 +210,21 @@
                   <div class="table-responsive mailbox-messages">
                     <table class="table table-hover table-striped">
                       <tbody>
-                        <tr>
-                          <td>
-                            <input type="checkbox">
-                          </td>
-                          <td class="mailbox-name"><a href="MC_viewCon.html">Ryserg Tung</a></td>
-                          <td class="mailbox-subject">Contribution's Title
-                          </td>
-                          <td class="mailbox-attachment"></td>
-                          <td class="mailbox-date">09/23/2016</td>
-                          <td class="mailbox-status">Approved</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <input type="checkbox">
-                          </td>
-                          <td class="mailbox-name"><a href="MC_viewCon.html">Ryserg Tung</a></td>
-                          <td class="mailbox-subject">Contribution's Title
-                          </td>
-                          <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
-                          <td class="mailbox-date">09/23/2016</td>
-                          <td class="mailbox-status">Approved</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <input type="checkbox">
-                          </td>
-                          <td class="mailbox-name"><a href="MC_viewCon.html">Ryserg Tung</a></td>
-                          <td class="mailbox-subject">Contribution's Title
-                          </td>
-                          <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
-                          <td class="mailbox-date">09/23/2016</td>
-                          <td class="mailbox-status">Approved</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <input type="checkbox">
-                          </td>
-                          <td class="mailbox-name"><a href="MC_viewCon.html">Ryserg Tung</a></td>
-                          <td class="mailbox-subject">Contribution's Title
-                          </td>
-                          <td class="mailbox-attachment"></td>
-                          <td class="mailbox-date">09/23/2016</td>
-                          <td class="mailbox-status">Approved</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <input type="checkbox">
-                          </td>
-                          <td class="mailbox-name"><a href="MC_viewCon.html">Ryserg Tung</a></td>
-                          <td class="mailbox-subject">Contribution's Title
-                          </td>
-                          <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
-                          <td class="mailbox-date">09/23/2016</td>
-                          <td class="mailbox-status">Approved</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <input type="checkbox">
-                          </td>
-                          <td class="mailbox-name"><a href="MC_viewCon.html">Ryserg Tung</a></td>
-                          <td class="mailbox-subject">Contribution's Title
-                          </td>
-                          <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
-                          <td class="mailbox-date">09/23/2016</td>
-                          <td class="mailbox-status">Approved</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <input type="checkbox">
-                          </td>
-                          <td class="mailbox-name"><a href="MC_viewCon.html">Ryserg Tung</a></td>
-                          <td class="mailbox-subject">Contribution's Title
-                          </td>
-                          <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
-                          <td class="mailbox-date">09/23/2016</td>
-                          <td class="mailbox-status">Approved</td>
-                        </tr>
+                       
+                        <c:forEach items="${listArt}" var="n">  
                         <tr>
                           <td>
                             <input type="checkbox">
                           </td>
 
-                          <td class="mailbox-name"><a href="MC_viewCon.html">Ryserg Tung</a></td>
-                          <td class="mailbox-subject">Contribution's Title
-                          </td>
-                          <td class="mailbox-attachment"></td>
-                          <td class="mailbox-date">09/23/2016</td>
-                          <td class="mailbox-status">Approved</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <input type="checkbox">
-                          </td>
-
-                          <td class="mailbox-name"><a href="MC_viewCon.html">Ryserg Tung</a></td>
-                          <td class="mailbox-subject">Contribution's Title
-                          </td>
-                          <td class="mailbox-attachment"></td>
-                          <td class="mailbox-date">09/23/2016</td>
-                          <td class="mailbox-status">Approved</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <input type="checkbox">
-                          </td>
-
-                          <td class="mailbox-name"><a href="MC_viewCon.html">Ryserg Tung</a></td>
-                          <td class="mailbox-subject">Contribution's Title
-                          </td>
-                          <td class="mailbox-attachment"></td>
-                          <td class="mailbox-date">09/23/2016</td>
-                          <td class="mailbox-status">Approved</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <input type="checkbox">
-                          </td>
-
-                          <td class="mailbox-name"><a href="MC_viewCon.html">Ryserg Tung</a></td>
-                          <td class="mailbox-subject">Contribution's Title
+                          <td class="mailbox-name"><a href="MC_viewCon.jsp">${n.getArticleAuthor()}</a></td>
+                          <td class="mailbox-subject">${n.getArticleTitle()}
                           </td>
                           <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
-                          <td class="mailbox-date">09/23/2016</td>
-                          <td class="mailbox-status">Approved</td>
+                          <td class="mailbox-date">${n.getSubmitted_at()}</td>
+                          <td class="mailbox-status">${n.getArticleStatus()}</td>
                         </tr>
-                        <tr>
-                          <td>
-                            <input type="checkbox">
-                          </td>
-
-                          <td class="mailbox-name"><a href="MC_viewCon.html">Ryserg Tung</a></td>
-                          <td class="mailbox-subject">Contribution's Title
-                          </td>
-                          <td class="mailbox-attachment"></td>
-                          <td class="mailbox-date">09/23/2016</td>
-                          <td class="mailbox-status">Approved</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <input type="checkbox">
-                          </td>
-
-                          <td class="mailbox-name"><a href="MC_viewCon.html">Ryserg Tung</a></td>
-                          <td class="mailbox-subject">Contribution's Title
-                          </td>
-                          <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
-                          <td class="mailbox-date">09/23/2016</td>
-                          <td class="mailbox-status">Approved</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <input type="checkbox">
-                          </td>
-
-                          <td class="mailbox-name"><a href="MC_viewCon.html">Ryserg Tung</a></td>
-                          <td class="mailbox-subject">Contribution's Title
-                          </td>
-                          <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
-                          <td class="mailbox-date">09/23/2016</td>
-                          <td class="mailbox-status">Approved</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <input type="checkbox">
-                          </td>
-
-                          <td class="mailbox-name"><a href="MC_viewCon.html">Ryserg Tung</a></td>
-                          <td class="mailbox-subject">Contribution's Title
-                          </td>
-                          <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
-                          <td class="mailbox-date">09/23/2016</td>
-                          <td class="mailbox-status">Approved</td>
-                        </tr>
+                        </c:forEach>
                       </tbody>
                     </table>
                     <!-- /.table -->

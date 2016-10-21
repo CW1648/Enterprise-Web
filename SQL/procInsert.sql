@@ -116,13 +116,19 @@ end
 drop procedure usp_getFaculties_by_ID
 go
 create procedure usp_getFaculties_by_ID
-@op_ID int,
 @mc_ID int
 as
 begin
-select*from Faculties where op_ID=@op_ID and mc_ID=@mc_ID
+select*from Faculties where mc_ID=@mc_ID
 end
 
-
-
+drop procedure usp_getArticles_by_Fa
+go
+create procedure usp_getArticles_by_Fa
+@articleFaculty int
+as
+begin
+select*from Articles where articleFaculty=@articleFaculty
 end
+go
+

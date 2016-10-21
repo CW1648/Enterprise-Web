@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 
@@ -123,7 +124,7 @@
                         <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="MC_viewAllFaculties.html"><i class="fa fa-circle-o"></i> View All Faculties</a></li>
+                        <li><a href="Process?act=process"><i class="fa fa-circle-o"></i> View All Faculties</a></li>
                     </ul>
                 </li>
             </ul>
@@ -137,7 +138,7 @@
       <section class="content-header">
         <h1>Dashboard<small>Control panel</small></h1>
         <ol class="breadcrumb">
-          <li><a href="MC_index.html"><i class="fa fa-dashboard"></i> Home</a></li>
+          <li><a href="MC_index.jsp"><i class="fa fa-dashboard"></i> Home</a></li>
           <li><a href="#"><i class="fa fa-laptop"></i> Faculties</a></li>
           <li class="active">View All Faculties</li>
         </ol>
@@ -167,156 +168,18 @@
                     </tr>
                   </thead>
                   <tbody>
+                   <c:forEach items="${listitem}" var="n">  
                     <tr>
-                      <th scope="row">1</th>
-                      <td>Computer Science 1</td>
-                      <td>2016</td>
-                      <td>09/23/2016</td>
-                      <td>09/23/2016</td>
-                      <td>123</td>
-                      <td>123</td>
-                      <td><a href="MC_viewAllCon.html" class="btn btn-default" role="button">View</a></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>Computer Science 2</td>
-                      <td>2016</td>
-                      <td>09/23/2016</td>
-                      <td>09/23/2016</td>
-                      <td>234</td>
-                      <td>123</td>
-                      <td><a href="MC_viewAllCon.html" class="btn btn-default" role="button">View</a></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">3</th>
-                      <td>Computer Science 3</td>
-                      <td>2016</td>
-                      <td>09/23/2016</td>
-                      <td>09/23/2016</td>
-                      <td>1243</td>
-                      <td>123</td>
-                      <td><a href="MC_viewAllCon.html" class="btn btn-default" role="button">View</a></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">4</th>
-                      <td>Computer Science 4</td>
-                      <td>2016</td>
-                      <td>09/23/2016</td>
-                      <td>09/23/2016</td>
-                      <td>333</td>
-                      <td>123</td>
-                      <td><a href="MC_viewAllCon.html" class="btn btn-default" role="button">View</a></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">5</th>
-                      <td>Computer Science 5</td>
-                      <td>2016</td>
-                      <td>09/23/2016</td>
-                      <td>09/23/2016</td>
-                      <td>444</td>
-                      <td>123</td>
-                      <td><a href="MC_viewAllCon.html" class="btn btn-default" role="button">View</a></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">6</th>
-                      <td>Computer Science 6</td>
-                      <td>2016</td>
-                      <td>09/23/2016</td>
-                      <td>09/23/2016</td>
-                      <td>555</td>
-                      <td>123</td>
-                      <td><a href="MC_viewAllCon.html" class="btn btn-default" role="button">View</a></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">7</th>
-                      <td>Computer Science 7</td>
-                      <td>2016</td>
-                      <td>09/23/2016</td>
-                      <td>09/23/2016</td>
-                      <td>666</td>
-                      <td>123</td>
-                      <td><a href="MC_viewAllCon.html" class="btn btn-default" role="button">View</a></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">8</th>
-                      <td>Computer Science 8</td>
-                      <td>2016</td>
-                      <td>09/23/2016</td>
-                      <td>09/23/2016</td>
-                      <td>777</td>
-                      <td>123</td>
-                      <td><a href="MC_viewAllCon.html" class="btn btn-default" role="button">View</a></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">9</th>
-                      <td>Computer Science 9</td>
-                      <td>2017</td>
-                      <td>09/23/2016</td>
-                      <td>09/23/2016</td>
-                      <td>452</td>
-                      <td>123</td>
-                      <td><a href="MC_viewAllCon.html" class="btn btn-default" role="button">View</a></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">10</th>
-                      <td>Computer Science 10</td>
-                      <td>2017</td>
-                      <td>09/23/2016</td>
-                      <td>09/23/2016</td>
-                      <td>3523</td>
-                      <td>123</td>
-                      <td><a href="MC_viewAllCon.html" class="btn btn-default" role="button">View</a></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">11</th>
-                      <td>Computer Science 11</td>
-                      <td>2017</td>
-                      <td>09/23/2016</td>
-                      <td>09/23/2016</td>
-                      <td>23232</td>
-                      <td>123</td>
-                      <td><a href="MC_viewAllCon.html" class="btn btn-default" role="button">View</a></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">12</th>
-                      <td>Computer Science 12</td>
-                      <td>2017</td>
-                      <td>09/23/2016</td>
-                      <td>09/23/2016</td>
-                      <td>4444</td>
-                      <td>123</td>
-                      <td><a href="MC_viewAllCon.html" class="btn btn-default" role="button">View</a></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">13</th>
-                      <td>Computer Science 13</td>
-                      <td>2017</td>
-                      <td>09/23/2016</td>
-                      <td>09/23/2016</td>
-                      <td>3333</td>
-                      <td>123</td>
-                      <td><a href="MC_viewAllCon.html" class="btn btn-default" role="button">View</a></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">14</th>
-                      <td>Computer Science 14</td>
-                      <td>2017</td>
-                      <td>09/23/2016</td>
-                      <td>09/23/2016</td>
-                      <td>7777</td>
-                      <td>123</td>
-                      <td><a href="MC_viewAllCon.html" class="btn btn-default" role="button">View</a></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">15</th>
-                      <td>Computer Science 15</td>
-                      <td>2017</td>
-                      <td>09/23/2016</td>
-                      <td>09/23/2016</td>
+                      <th scope="row">${n.getFacultyID()}</th>
+                      <td>${n.getFacultyName()}</td>
+                      <td>${n.getAcademicYear()}</td>
+                      <td>${n.getFa_startDate()}</td>
+                      <td>${n.getFa_endDate()}</td>
                       <td>67676</td>
                       <td>123</td>
-                      <td><a href="MC_viewAllCon.html" class="btn btn-default" role="button">View</a></td>
+                      <td><a href="Process?act=con&id=${n.getFacultyID()}" class="btn btn-default" role="button">View</a></td>
                     </tr>
+                   </c:forEach>
                   </tbody>
                 </table>
               </div>
