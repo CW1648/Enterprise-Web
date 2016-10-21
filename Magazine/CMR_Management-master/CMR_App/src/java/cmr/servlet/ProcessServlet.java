@@ -5,13 +5,22 @@
  */
 package cmr.servlet;
 
+import cmr.db.ConnectionUtil;
 import cmr.db.Overall_processDB;
 import cmr.entity.Articles;
+import cmr.entity.Comments;
 import cmr.entity.Faculties;
 import cmr.entity.Overall_process;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
@@ -35,7 +44,7 @@ public class ProcessServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
         int mcid=0;
         Cookie[] cookies = request.getCookies();
@@ -62,6 +71,55 @@ public class ProcessServlet extends HttpServlet {
             request.setAttribute("listArt", listArt);
             RequestDispatcher dispatcher = request.getRequestDispatcher("MC_viewAllCon.jsp");
             dispatcher.forward(request, response);
+        }else if(action.equals("view")){
+            int id = Integer.parseInt(request.getParameter("id"));
+            Connection conn = ConnectionUtil.getConnection();
+            PreparedStatement ps = conn.prepareStatement("select * from Articles where articleID = ?");
+            ps.setInt(1, id);
+            Articles item = new Articles();
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            int A_id = rs.getInt(1);
+            String articleTitle = rs.getString("articleTitle");
+            String articleContent = rs.getString("articleContent");
+            //String =rs.getString("articleTitle");
+            int articleAuthor = rs.getInt("articleAuthor");
+            int articleFaculty = rs.getInt("articleFaculty");
+            String articleStatus = rs.getString("articleStatus");
+            Date submitted_at = rs.getDate("submitted_at");
+            Date updated_at = rs.getDate("updated_at");
+            item.setArticleID(A_id);
+            item.setArticleTitle(articleTitle);
+            item.setArticleContent(articleContent);
+            item.setArticleFaculty(articleFaculty);
+            item.setArticleAuthor(articleAuthor);
+            request.setAttribute("item", item);
+            List<Comments> listcom=db.getcomment(A_id);
+            request.setAttribute("listcom", listcom);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("MC_viewCon.jsp");
+            dispatcher.forward(request, response);
+        }else if(action.equals("change")){
+            int id = Integer.parseInt(request.getParameter("id"));
+            int Fid = Integer.parseInt(request.getParameter("Fid"));
+            Articles changeItem=new Articles();
+            changeItem.setArticleID(id);
+            changeItem.setArticleFaculty(Fid);
+            changeItem.setArticleStatus("Approved");
+            if(db.Update_Status(changeItem)){
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Process?act=con&id="+Fid);
+                dispatcher.forward(request, response);
+            }
+        }else if(action.equals("comment")){
+            String content=request.getParameter("message");
+            int id = Integer.parseInt(request.getParameter("id"));
+            Comments com1=new Comments();
+            com1.setArticleID(id);
+            com1.setCommentAuthor(mcid);
+            com1.setCommentContent(content);
+            if(db.insert_comment(com1)){
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Process?act=view&id="+id);
+                dispatcher.forward(request, response);
+            }
         }
     }
 
@@ -77,7 +135,11 @@ public class ProcessServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(ProcessServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -91,7 +153,11 @@ public class ProcessServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(ProcessServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

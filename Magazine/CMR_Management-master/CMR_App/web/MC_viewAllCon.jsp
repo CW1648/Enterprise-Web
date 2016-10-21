@@ -217,7 +217,7 @@
                             <input type="checkbox">
                           </td>
 
-                          <td class="mailbox-name"><a href="MC_viewCon.jsp">${n.getArticleAuthor()}</a></td>
+                          <td class="mailbox-name"><a href="Process?act=view&id=${n.getArticleID()}">${n.getArticleAuthor()}</a></td>
                           <td class="mailbox-subject">${n.getArticleTitle()}
                           </td>
                           <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>

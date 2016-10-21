@@ -132,3 +132,38 @@ select*from Articles where articleFaculty=@articleFaculty
 end
 go
 
+drop procedure usp_updateStatus
+go
+create procedure usp_updateStatus
+@articleID int,
+@articleStatus VARCHAR(30)
+as
+begin
+update Articles set articleStatus=@articleStatus where articleID=@articleID
+end
+go
+
+drop procedure usp_addcomment
+go
+create procedure usp_addcomment
+@articleID int,
+@commentContent nvarchar(255),
+@commentAuthor int
+as
+begin
+insert into comment values(@articleID,@commentContent,@commentAuthor);
+end
+go
+
+
+drop procedure usp_showcommet
+go
+create procedure usp_showcommet
+@articleID int
+as
+begin
+select*from comment where articleID=@articleID;
+end
+go
+
+

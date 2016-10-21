@@ -7,7 +7,9 @@ package cmr.servlet;
 
 import cmr.db.ArticlesDB;
 import cmr.db.ConnectionUtil;
+import cmr.db.Overall_processDB;
 import cmr.entity.Articles;
+import cmr.entity.Comments;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -85,6 +87,9 @@ public class ShowArticlesServlet extends HttpServlet {
             item.setArticleTitle(articleTitle);
             item.setArticleContent(articleContent);
             request.setAttribute("item", item);
+            Overall_processDB db1=new Overall_processDB();
+            List<Comments> listcom=db1.getcomment(A_id);
+            request.setAttribute("listcom", listcom);
             RequestDispatcher dispatcher = request.getRequestDispatcher("Student_viewCon.jsp");
             dispatcher.forward(request, response);
 

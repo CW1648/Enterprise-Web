@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,7 +44,7 @@
 
     <header class="main-header">
         <!-- Logo -->
-        <a href="MC_index.html" class="logo">
+        <a href="MC_index.jsp" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>F</b>GR</span>
             <!-- logo for regular state and mobile devices -->
@@ -125,7 +126,7 @@
                         <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="MC_viewAllFaculties.html"><i class="fa fa-circle-o"></i> View All Faculties</a></li>
+                        <li><a href="Process?act=process"><i class="fa fa-circle-o"></i> View All Faculties</a></li>
                     </ul>
                 </li>
             </ul>
@@ -139,9 +140,9 @@
       <section class="content-header">
         <h1>Dashboard<small>Control panel</small></h1>
         <ol class="breadcrumb">
-          <li><a href="MC_index.html"><i class="fa fa-dashboard"></i> Home</a></li>
-          <li><a href="MC_viewAllFaculties.html"><i class="fa fa-laptop"></i> Faculties</a></li>
-          <li><a href="MC_viewAllCon.html"><i class="fa fa-edit"></i> View All Contributions</a></li>
+          <li><a href="MC_index.jsp"><i class="fa fa-dashboard"></i> Home</a></li>
+          <li><a href="Process?act=process"><i class="fa fa-laptop"></i> Faculties</a></li>
+          <li><a href="Process?act=con&id=${item.getArticleFaculty()}"><i class="fa fa-edit"></i> View All Contributions</a></li>
           <li class="active">View Contribution</li>
         </ol>
       </section>
@@ -150,7 +151,7 @@
     <section class="content">
       <div class="row">
         <div class="col-md-3">
-          <a href="MC_viewAllCon.html" class="btn btn-primary btn-block margin-bottom">Back</a>
+          <a href="Process?act=con&id=${item.getArticleFaculty()}" class="btn btn-primary btn-block margin-bottom">Back</a>
 
           <div class="box box-solid">
             <div class="box-header with-border">
@@ -163,7 +164,7 @@
             </div>
             <div class="box-body no-padding">
               <ul class="nav nav-pills nav-stacked">
-                <li><a href="MC_viewAllCon.html"><i class="fa fa-inbox"></i> Inbox</a></li>
+                <li><a href="Process?act=con&id=${item.getArticleFaculty()}"><i class="fa fa-inbox"></i> Inbox</a></li>
               </ul>
             </div>
             <!-- /.box-body -->
@@ -184,89 +185,23 @@
             <div class="box-body">
               <!-- Conversations are loaded here -->
               <div class="direct-chat-messages">
-                <!-- Message. Default to the left -->
-                <div class="direct-chat-msg">
-                  <div class="direct-chat-info clearfix">
-                    <span class="direct-chat-name pull-left">Ryserg Tung</span>
-                  </div>
-                  <!-- /.direct-chat-info -->
-                  <img class="direct-chat-img" src="dist/img/user1-128x128.jpg" alt="Message User Image"><!-- /.direct-chat-img -->
-                  <div class="direct-chat-text">
-                    Lười nó vừa vừa thôi...
-                  </div>
-                  <!-- /.direct-chat-text -->
-                </div>
-                <!-- /.direct-chat-msg -->
-
-                <!-- Message to the right -->
-                <div class="direct-chat-msg right">
-                  <div class="direct-chat-info clearfix">
-                    <span class="direct-chat-name pull-right">Marketing Coordinator - Zack</span>
-                  </div>
-                  <!-- /.direct-chat-info -->
-                  <img class="direct-chat-img" src="dist/img/user3-128x128.jpg" alt="Message User Image"><!-- /.direct-chat-img -->
-                  <div class="direct-chat-text">
-                    Ờ biết rồi mà...
-                  </div>
-                  <!-- /.direct-chat-text -->
-                </div>
-                <!-- /.direct-chat-msg -->
+               
+                <c:forEach items="${listcom}" var="n"> 
 
                 <!-- Message. Default to the left -->
                 <div class="direct-chat-msg">
                   <div class="direct-chat-info clearfix">
-                    <span class="direct-chat-name pull-left">Ryserg Tung</span>
+                    <span class="direct-chat-name pull-left">${n.getCommentAuthor()}</span>
                   </div>
                   <!-- /.direct-chat-info -->
                   <img class="direct-chat-img" src="dist/img/user1-128x128.jpg" alt="Message User Image"><!-- /.direct-chat-img -->
                   <div class="direct-chat-text">
-                    Lười nó vừa vừa thôi...
+                    ${n.getCommentContent()}
                   </div>
                   <!-- /.direct-chat-text -->
                 </div>
                 <!-- /.direct-chat-msg -->
-
-                <!-- Message to the right -->
-                <div class="direct-chat-msg right">
-                  <div class="direct-chat-info clearfix">
-                    <span class="direct-chat-name pull-right">Marketing Coordinator - Zack</span>
-                  </div>
-                  <!-- /.direct-chat-info -->
-                  <img class="direct-chat-img" src="dist/img/user3-128x128.jpg" alt="Message User Image"><!-- /.direct-chat-img -->
-                  <div class="direct-chat-text">
-                    Ờ biết rồi mà...
-                  </div>
-                  <!-- /.direct-chat-text -->
-                </div>
-                <!-- /.direct-chat-msg -->
-
-                <!-- Message. Default to the left -->
-                <div class="direct-chat-msg">
-                  <div class="direct-chat-info clearfix">
-                    <span class="direct-chat-name pull-left">Ryserg Tung</span>
-                  </div>
-                  <!-- /.direct-chat-info -->
-                  <img class="direct-chat-img" src="dist/img/user1-128x128.jpg" alt="Message User Image"><!-- /.direct-chat-img -->
-                  <div class="direct-chat-text">
-                    Lười nó vừa vừa thôi...
-                  </div>
-                  <!-- /.direct-chat-text -->
-                </div>
-                <!-- /.direct-chat-msg -->
-
-                <!-- Message to the right -->
-                <div class="direct-chat-msg right">
-                  <div class="direct-chat-info clearfix">
-                    <span class="direct-chat-name pull-right">Marketing Coordinator - Zack</span>
-                  </div>
-                  <!-- /.direct-chat-info -->
-                  <img class="direct-chat-img" src="dist/img/user3-128x128.jpg" alt="Message User Image"><!-- /.direct-chat-img -->
-                  <div class="direct-chat-text">
-                    Ờ biết rồi mà...
-                  </div>
-                  <!-- /.direct-chat-text -->
-                </div>
-                <!-- /.direct-chat-msg -->
+                </c:forEach>
               </div>
               <!--/.direct-chat-messages-->
 
@@ -295,7 +230,7 @@
             </div>
             <!-- /.box-body -->
             <div class="box-footer">
-              <form action="#" method="post">
+              <form action="Process?act=comment&id=${item.getArticleID()}" method="post">
                 <div class="input-group">
                   <input type="text" name="message" placeholder="Type Message ..." class="form-control">
                       <span class="input-group-btn">
@@ -317,44 +252,11 @@
             <!-- /.box-header -->
             <div class="box-body no-padding">
               <div class="mailbox-read-info">
-                <h3>Contribution's Title</h3>
-                <h5>From Student : rysergt</h5>
+                <h3>${item.getArticleTitle()}</h3>
+                <h5>From Student : ${item.getArticleAuthor()}</h5>
               </div>
               <div class="mailbox-read-message">
-                <p>Hello John,</p>
-
-                <p>Keffiyeh blog actually fashion axe vegan, irony biodiesel. Cold-pressed hoodie chillwave put a bird
-                  on it aesthetic, bitters brunch meggings vegan iPhone. Dreamcatcher vegan scenester mlkshk. Ethical
-                  master cleanse Bushwick, occupy Thundercats banjo cliche ennui farm-to-table mlkshk fanny pack
-                  gluten-free. Marfa butcher vegan quinoa, bicycle rights disrupt tofu scenester chillwave 3 wolf moon
-                  asymmetrical taxidermy pour-over. Quinoa tote bag fashion axe, Godard disrupt migas church-key tofu
-                  blog locavore. Thundercats cronut polaroid Neutra tousled, meh food truck selfies narwhal American
-                  Apparel.</p>
-
-                <p>Raw denim McSweeney's bicycle rights, iPhone trust fund quinoa Neutra VHS kale chips vegan PBR&amp;B
-                  literally Thundercats +1. Forage tilde four dollar toast, banjo health goth paleo butcher. Four dollar
-                  toast Brooklyn pour-over American Apparel sustainable, lumbersexual listicle gluten-free health goth
-                  umami hoodie. Synth Echo Park bicycle rights DIY farm-to-table, retro kogi sriracha dreamcatcher PBR&amp;B
-                  flannel hashtag irony Wes Anderson. Lumbersexual Williamsburg Helvetica next level. Cold-pressed
-                  slow-carb pop-up normcore Thundercats Portland, cardigan literally meditation lumbersexual crucifix.
-                  Wayfarers raw denim paleo Bushwick, keytar Helvetica scenester keffiyeh 8-bit irony mumblecore
-                  whatever viral Truffaut.</p>
-
-                <p>Post-ironic shabby chic VHS, Marfa keytar flannel lomo try-hard keffiyeh cray. Actually fap fanny
-                  pack yr artisan trust fund. High Life dreamcatcher church-key gentrify. Tumblr stumptown four dollar
-                  toast vinyl, cold-pressed try-hard blog authentic keffiyeh Helvetica lo-fi tilde Intelligentsia. Lomo
-                  locavore salvia bespoke, twee fixie paleo cliche brunch Schlitz blog McSweeney's messenger bag swag
-                  slow-carb. Odd Future photo booth pork belly, you probably haven't heard of them actually tofu ennui
-                  keffiyeh lo-fi Truffaut health goth. Narwhal sustainable retro disrupt.</p>
-
-                <p>Skateboard artisan letterpress before they sold out High Life messenger bag. Bitters chambray
-                  leggings listicle, drinking vinegar chillwave synth. Fanny pack hoodie American Apparel twee. American
-                  Apparel PBR listicle, salvia aesthetic occupy sustainable Neutra kogi. Organic synth Tumblr viral
-                  plaid, shabby chic single-origin coffee Etsy 3 wolf moon slow-carb Schlitz roof party tousled squid
-                  vinyl. Readymade next level literally trust fund. Distillery master cleanse migas, Vice sriracha
-                  flannel chambray chia cronut.</p>
-
-                <p>Thanks,<br>Jane</p>
+                ${item.getArticleContent()}
               </div>
               <!-- /.mailbox-read-message -->
             </div>
@@ -362,7 +264,7 @@
             <div class="box-footer">
               <ul class="mailbox-attachments clearfix">
                 <li>
-                  <span class="mailbox-attachment-icon has-img"><img src="dist/img/photo2.png" alt="Attachment"></span>
+                  <span class="mailbox-attachment-icon has-img"><img src="ImageServlet?id=${item.getArticleID()}" alt="Attachment"></span>
 
                   <div class="mailbox-attachment-info">
                     <a href="#" class="mailbox-attachment-name"><i class="fa fa-camera"></i> photo2.png</a>
@@ -376,7 +278,7 @@
             </div>
             <!-- /.box-footer -->
             <div class="box-footer">
-              <a href="#" class="btn btn-default" role="button"><i class="fa fa-check-square-o"></i> Approve</a>
+              <a href="Process?act=change&id=${item.getArticleID()}&Fid=${item.getArticleFaculty()}" class="btn btn-default" role="button"><i class="fa fa-check-square-o"></i> Approve</a>
             </div>
             <!-- /.box-footer -->
           </div>

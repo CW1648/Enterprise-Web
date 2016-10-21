@@ -6,6 +6,7 @@
 package cmr.db;
 
 import cmr.entity.Articles;
+import cmr.entity.Comments;
 import cmr.entity.Faculties;
 import cmr.entity.Overall_process;
 import java.io.ByteArrayInputStream;
@@ -95,5 +96,61 @@ public class Overall_processDB {
             e.printStackTrace();
         }
         return listAr;
+    }
+    
+    public boolean Update_Status(Articles item){
+        Connection conn = null;
+        try {
+            conn=ConnectionUtil.getConnection();
+            CallableStatement cstmt=conn.prepareCall("{call usp_updateStatus(?,?)}");
+            cstmt.setInt("articleID", item.getArticleID());
+            cstmt.setString("articleStatus", item.getArticleStatus());            
+            int result=cstmt.executeUpdate();
+            if (result > 0) {
+                return true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+    
+    public List<Comments> getcomment(int id){
+        List<Comments> listcom=new ArrayList<>();
+        Connection conn=null;
+        try {
+            conn=ConnectionUtil.getConnection();
+            CallableStatement cstmt=conn.prepareCall("{call usp_showcommet(?)}");
+            cstmt.setInt("articleID", id);
+            ResultSet rs=cstmt.executeQuery();
+            while(rs.next()){
+               int cid=rs.getInt("comment_id");
+               int aid=rs.getInt("articleID");
+               String content=rs.getString("commentContent");
+               int author=rs.getInt("commentAuthor");
+               listcom.add(new Comments(cid, aid, content, author));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return listcom;
+    }
+    
+    public boolean insert_comment(Comments com){
+        Connection conn = null;
+        try {
+            conn=ConnectionUtil.getConnection();
+            CallableStatement cstmt=conn.prepareCall("{call usp_addcomment(?,?,?)}");
+            cstmt.setInt("articleID", com.getArticleID());
+            cstmt.setString("commentContent", com.getCommentContent());
+            cstmt.setInt("commentAuthor", com.getCommentAuthor());
+            int result=cstmt.executeUpdate();
+            if (result > 0) {
+                return true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }
