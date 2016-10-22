@@ -74,7 +74,7 @@ public class OverallServlet extends HttpServlet {
         }else if (action.equals("con")) {
             int id=Integer.parseInt(request.getParameter("id"));
             int oid=Integer.parseInt(request.getParameter("oid"));
-            List<Articles> listArt=db.getAllArticles(id);
+            List<Articles> listArt=db.getAprovedArticles(id);
             request.setAttribute("listArt", listArt);
             request.setAttribute("oid", oid);
             RequestDispatcher dispatcher = request.getRequestDispatcher("MM_viewAllCon.jsp");

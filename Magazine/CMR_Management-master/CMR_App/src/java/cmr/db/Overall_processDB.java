@@ -126,6 +126,34 @@ public class Overall_processDB {
         return listAr;
     }
     
+    public List<Articles> getAprovedArticles(int id){
+        List <Articles> listAr=new ArrayList<>();
+        Connection conn=null;
+        try {
+            conn=ConnectionUtil.getConnection();
+            CallableStatement cstmt=conn.prepareCall("{call usp_getArticles_by_Fa1(?)}");
+            cstmt.setInt("articleFaculty", id);
+            ResultSet rs=cstmt.executeQuery();
+            while(rs.next()){
+                int A_id=rs.getInt("articleID");
+                String articleTitle=rs.getString("articleTitle");
+                String articleContent=rs.getString("articleContent");
+                //String =rs.getString("articleTitle");
+                byte[] b=rs.getBytes("articlePicture");
+                InputStream is=new ByteArrayInputStream(b);
+                int articleAuthor=rs.getInt("articleAuthor");
+                int articleFaculty=rs.getInt("articleFaculty");
+                String articleStatus=rs.getString("articleStatus");
+                Date submitted_at=rs.getDate("submitted_at");
+                Date updated_at=rs.getDate("updated_at");
+                listAr.add(new Articles(A_id, articleTitle, articleContent, is, articleAuthor, articleFaculty, articleStatus, submitted_at, updated_at));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return listAr;
+    }
+    
     public boolean Update_Status(Articles item){
         Connection conn = null;
         try {

@@ -128,6 +128,17 @@ select*from Faculties where op_ID=@op_ID
 end
 
 
+drop procedure usp_getArticles_by_Fa1
+go
+create procedure usp_getArticles_by_Fa1
+@articleFaculty int
+as
+begin
+select*from Articles where articleFaculty=@articleFaculty and articleStatus='Approved'
+end
+go
+
+
 drop procedure usp_getArticles_by_Fa
 go
 create procedure usp_getArticles_by_Fa
@@ -137,6 +148,7 @@ begin
 select*from Articles where articleFaculty=@articleFaculty
 end
 go
+
 
 drop procedure usp_updateStatus
 go
