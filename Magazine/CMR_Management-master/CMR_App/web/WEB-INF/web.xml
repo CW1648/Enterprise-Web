@@ -48,6 +48,10 @@
         <servlet-name>ProcessServlet</servlet-name>
         <servlet-class>cmr.servlet.ProcessServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>OverallServlet</servlet-name>
+        <servlet-class>cmr.servlet.OverallServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CMR_UsersServlet</servlet-name>
         <url-pattern>/cmr_users</url-pattern>
@@ -67,6 +71,10 @@
     <servlet-mapping>
         <servlet-name>ProcessServlet</servlet-name>
         <url-pattern>/Process</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OverallServlet</servlet-name>
+        <url-pattern>/Overall</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

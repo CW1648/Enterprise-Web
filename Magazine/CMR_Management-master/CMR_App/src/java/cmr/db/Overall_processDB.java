@@ -23,12 +23,13 @@ import java.util.List;
  * @author BUIVUHUECHI
  */
 public class Overall_processDB {
-    public List<Overall_process> getall(){
+    public List<Overall_process> getall(int mmid){
         List<Overall_process> listyear=new ArrayList<>();
         Connection conn=null;
         try {
             conn=ConnectionUtil.getConnection();
-            CallableStatement cstmt=conn.prepareCall("{call usp_getOverall_process()}");
+            CallableStatement cstmt=conn.prepareCall("{call usp_getOverall_process(?)}");
+            cstmt.setInt("mm_ID", mmid);
             ResultSet rs=cstmt.executeQuery();
             while (rs.next()) {                
                 int id=rs.getInt("op_ID");
@@ -66,8 +67,35 @@ public class Overall_processDB {
                  listfaculty.add(f);
              }
         } catch (Exception e) {
+            e.printStackTrace();
         }
         return listfaculty;
+    }
+    
+    public List<Faculties> getfacultyByOP(int oid){
+        List<Faculties> listfaculty1=new ArrayList<>();
+         Connection conn=null;
+         try {
+            conn=ConnectionUtil.getConnection();
+            CallableStatement cstmt=conn.prepareCall("{call usp_getFaculties_by_oID(?)}");
+            cstmt.setInt("op_ID", oid);
+            ResultSet rs=cstmt.executeQuery();
+             while (rs.next()) {                 
+                 int id=rs.getInt("facultyID");
+                 String name=rs.getString("facultyName");
+                 Date academicYear=rs.getDate("academicYear");
+                 int mc_ID=rs.getInt("mc_ID");
+                 int op_ID=rs.getInt("op_ID");
+                 Date fa_startDate=rs.getDate("fa_startDate");
+                 Date fa_endDate=rs.getDate("fa_endDate");
+                 Faculties f=new Faculties(name, academicYear, mc_ID, op_ID, fa_startDate, fa_endDate);
+                 f.setFacultyID(id);
+                 listfaculty1.add(f);
+             }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return listfaculty1;
     }
     
     public List<Articles> getAllArticles(int id){

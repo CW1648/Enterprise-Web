@@ -97,20 +97,15 @@ updated_at=@updated_at where articleID=@articleID
 end
 go
 
-drop procedure usp_getOverall_process
-go
-create procedure usp_getOverall_process
-as
-begin
-select*from Overall_process
-end
+
 
 drop procedure usp_getOverall_process
 go
 create procedure usp_getOverall_process
+@mm_ID int
 as
 begin
-select*from Overall_process
+select*from Overall_process where mm_ID=@mm_ID
 end
 
 drop procedure usp_getFaculties_by_ID
@@ -121,6 +116,17 @@ as
 begin
 select*from Faculties where mc_ID=@mc_ID
 end
+
+
+drop procedure usp_getFaculties_by_oID
+go
+create procedure usp_getFaculties_by_oID
+@op_ID int
+as
+begin
+select*from Faculties where op_ID=@op_ID
+end
+
 
 drop procedure usp_getArticles_by_Fa
 go
