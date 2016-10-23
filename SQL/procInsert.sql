@@ -14,6 +14,77 @@ Begin
 end
 go
 
+----HANV -----
+---1. Add/update/delete/setAssignMM/AssignMC
+
+
+drop procedure usp_deleteUsers
+go
+create procedure usp_deleteUsers
+@userName nvarchar(255)
+as
+begin
+delete dbo.Users from dbo.Users where @userName =userName;
+end
+go
+
+drop procedure usp_editUsers
+go
+create procedure usp_editUsers
+@u_name nvarchar(255),
+@u_pass nvarchar(255),
+@gender nvarchar(255),
+@dob date,
+@email nvarchar(255),
+@address nvarchar (255),
+@phone nvarchar(255),
+@roleID int
+as 
+begin
+update dbo.Users
+set 
+userPass =ISNULL(@u_pass,userPass),
+gender = ISNULL(@gender,gender),
+dob = ISNULL(@dob,dob),
+email = ISNULL(@email,email),
+address = ISNULL(@address,address),
+phone = ISNULL(@phone,phone),
+@roleID = ISNULL(@roleID,@roleID)
+from dbo.Users
+where userName= @u_name
+end 
+go
+
+drop procedure usp_assignMM
+go
+create procedure usp_assignMM
+@u_name nvarchar(255)
+as 
+begin
+update dbo.Users
+set 
+roleID= 4
+from dbo.Users
+where userName=@u_Name
+end
+go
+
+drop procedure usp_assignMC
+go
+create procedure usp_assignMC
+@u_name nvarchar(255)
+as 
+begin
+update dbo.Users
+set 
+roleID= 3
+from dbo.Users
+where userName=@u_Name
+end
+go
+----End 1.-----
+
+
 drop procedure usp_addUsers
 go
 create procedure usp_addUsers
