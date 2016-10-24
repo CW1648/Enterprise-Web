@@ -5,7 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,7 +49,7 @@
 <div class="wrapper">
   <header class="main-header">
     <!-- Logo -->
-    <a href="index.html" class="logo">
+    <a href="index.jsp" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>F</b>GR</span>
       <!-- logo for regular state and mobile devices -->
@@ -87,7 +87,7 @@
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                   <a href="login.jsp" class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>
@@ -131,8 +131,8 @@
                   <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
               </a>
               <ul class="treeview-menu">
-                  <li><a href="Admin_addNewUser.html"><i class="fa fa-circle-o"></i> Add New User</a></li>
-                  <li><a href="Admin_viewAllUsers.html"><i class="fa fa-circle-o"></i> View All Users</a></li>
+                  <li><a href="Admin_addNewUser.jsp"><i class="fa fa-circle-o"></i> Add New User</a></li>
+                  <li><a href="admin?act=viewUser"><i class="fa fa-circle-o"></i> View All Users</a></li>
               </ul>
           </li>
           <li class="treeview">
@@ -141,8 +141,8 @@
                   <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
               </a>
               <ul class="treeview-menu">
-                  <li><a href="Admin_addNewAY.html"><i class="fa fa-circle-o"></i> Add New Academic Year</a></li>
-                  <li><a href="Admin_viewAllAY.html"><i class="fa fa-circle-o"></i> View All Academic Year</a></li>
+                  <li><a href="admin?act=getAYinfo"><i class="fa fa-circle-o"></i> Add New Academic Year</a></li>
+                  <li><a href="admin?act=viewAY"><i class="fa fa-circle-o"></i> View All Academic Year</a></li>
               </ul>
           </li>
           <li class="treeview">
@@ -152,8 +152,8 @@
                   <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
               </a>
               <ul class="treeview-menu">
-                  <li><a href="Admin_addNewFaculty.html"><i class="fa fa-circle-o"></i> Add New Faculty</a></li>
-                  <li><a href="Admin_viewAllFaculties.html"><i class="fa fa-circle-o"></i> View All Faculties</a></li>
+                  <li><a href="admin?act=getFAinfo"><i class="fa fa-circle-o"></i> Add New Faculty</a></li>
+                  <li><a href="admin?act=viewFa"><i class="fa fa-circle-o"></i> View All Faculties</a></li>
               </ul>
           </li>
           <li class="treeview">
@@ -177,7 +177,7 @@
     <section class="content-header">
       <h1>Dashboard<small>Control panel</small></h1>
       <ol class="breadcrumb">
-        <li><a href="index.html"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="index.jsp"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#"><i class="fa fa-tasks"></i> Academic Years</a></li>
         <li class="active">Add New Academic Year</li>
       </ol>
@@ -189,47 +189,70 @@
         <div class="col-md-8 col-xs-12 col-sm-12">
           <!-- general form elements disabled -->
           <div class="box box-warning">
+              <form role="form" action="admin?act=addAY" method="post">
             <div class="box-header with-border">
               <h3 class="box-title">Add New Academic Year Form</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <form role="form">
-                <!-- text input -->
+              
+              
+              <!-- Date range -->
                 <div class="form-group">
-                  <label>Academic Year</label>
-                  <input type="text" class="form-control" placeholder="Academic Year">
+                  <label>Academic Year:</label>
+
+                  <div class="input-group date">
+                    <div class="input-group-addon">
+                      <i class="fa fa-calendar"></i>
+                    </div>
+                      <input type="text" class="form-control pull-right" id="datepicker" name="year">
+                  </div>
+                  <!-- /.input group -->
                 </div>
 
                 <!-- Date range -->
                 <div class="form-group">
-                  <label>Start Date - End Date:</label>
+                  <label>Start Date:</label>
 
-                  <div class="input-group">
+                  <div class="input-group date">
                     <div class="input-group-addon">
                       <i class="fa fa-calendar"></i>
                     </div>
-                    <input type="text" class="form-control pull-right" id="reservation">
+                      <input type="text" class="form-control pull-right" id="datepicker1" name="dateStart">
+                  </div>
+                  <!-- /.input group -->
+                </div>
+                 <!-- Date range -->
+                <div class="form-group">
+                  <label>End Date:</label>
+
+                  <div class="input-group date">
+                    <div class="input-group-addon">
+                      <i class="fa fa-calendar"></i>
+                    </div>
+                      <input type="text" class="form-control pull-right" id="datepicker2" name="dateEnd">
                   </div>
                   <!-- /.input group -->
                 </div>
                 <!-- /.form group -->
                 <div class="form-group">
                   <label>Select Marketing Manager</label>
-                  <select class="form-control">
-                    <option selected="selected">username1</option>
-                    <option>username2</option>
-                    <option>username3</option>
-                    <option>username4</option>
+                  <select class="form-control" name="mmid">
+                    <c:forEach items="${listmm}" var="n">
+                    
+                        <option value="${n.getUserID()}">${n.getUserName()}</option>
+                   
+                    </c:forEach>
                   </select>
                 </div>
-              </form>
+              
             </div>
             <!-- /.box-body -->
             <div class="box-footer">
               <button type="submit" class="btn btn-primary">Submit</button>
               <button type="button" class="btn btn-primary">Reset</button>
             </div>
+            </form>
           </div>
           <!-- /.box -->
         </div>

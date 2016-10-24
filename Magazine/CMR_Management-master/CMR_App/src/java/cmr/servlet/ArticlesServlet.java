@@ -72,7 +72,7 @@ public class ArticlesServlet extends HttpServlet {
 
             if (db.Add_Articles(title, content, is, author, falcuty, status)) {
                 message = "File uploaded and saved into database";
-                getServletContext().getRequestDispatcher("/Student_viewAllCon.jsp").forward(request, response);
+                getServletContext().getRequestDispatcher("/Student_index.jsp").forward(request, response);
             } else {
                 message = "File uploaded fail";
             }

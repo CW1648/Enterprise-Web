@@ -55,33 +55,6 @@ where userName= @u_name
 end 
 go
 
-drop procedure usp_assignMM
-go
-create procedure usp_assignMM
-@u_name nvarchar(255)
-as 
-begin
-update dbo.Users
-set 
-roleID= 4
-from dbo.Users
-where userName=@u_Name
-end
-go
-
-drop procedure usp_assignMC
-go
-create procedure usp_assignMC
-@u_name nvarchar(255)
-as 
-begin
-update dbo.Users
-set 
-roleID= 3
-from dbo.Users
-where userName=@u_Name
-end
-go
 ----End 1.-----
 
 
@@ -94,12 +67,27 @@ create procedure usp_addUsers
 @dob date ,
 @email nvarchar(255),
 @address nvarchar(255),
-@phone nvarchar (255) 
+@phone nvarchar (255),
+@roleID int
 as 
 begin 
-	insert into Users(userName,userPass,gender,dob,email,address,phone) values (@u_name,@u_pass,@gender,@dob,@email,@address,@phone);
+	insert into Users(userName,userPass,gender,dob,email,address,phone,roleID) values (@u_name,@u_pass,@gender,@dob,@email,@address,@phone,@roleID);
 end
 go
+
+
+drop procedure usp_addOverall_process
+go
+create procedure usp_addOverall_process
+	@op_year date ,
+	@mm_ID int,	
+	@op_startDate datetime,
+	@op_endDate datetime
+as
+begin
+ insert into Overall_process values(@op_year,@mm_ID,@op_startDate,@op_endDate);
+ end 
+ go
 
 drop procedure usp_addFaculties
 go
@@ -167,6 +155,14 @@ update Articles set articleTitle=@articleTitle,articleContent=@articleContent,ar
 updated_at=@updated_at where articleID=@articleID
 end
 go
+
+drop procedure usp_getAllOverall_process
+go
+create procedure usp_getAllOverall_process
+as
+begin
+select * from Overall_process,Users where Users.userID=Overall_process.mm_ID
+end
 
 
 

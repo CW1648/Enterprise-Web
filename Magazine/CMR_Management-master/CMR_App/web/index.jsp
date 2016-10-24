@@ -52,7 +52,7 @@
 
         <header class="main-header">
             <!-- Logo -->
-            <a href="index.html" class="logo">
+            <a href="index.jsp" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini"><b>F</b>GR</span>
                 <!-- logo for regular state and mobile devices -->
@@ -90,7 +90,7 @@
                                         <a href="#" class="btn btn-default btn-flat">Profile</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                        <a href="login.jsp" class="btn btn-default btn-flat">Sign out</a>
                                     </div>
                                 </li>
                             </ul>
@@ -134,8 +134,8 @@
                             <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="AD_ViewUsers.jsp"><i class="fa fa-circle-o"></i> Add New User</a></li>
-                            <li><a href="Admin_viewAllUsers.html"><i class="fa fa-circle-o"></i> View All Users</a></li>
+                            <li><a href="AD_addUser.jsp"><i class="fa fa-circle-o"></i> Add New User</a></li>
+                            <li><a href="admin?act=viewUser"><i class="fa fa-circle-o"></i> View All Users</a></li>
                         </ul>
                     </li>
                     <li class="treeview">
@@ -144,8 +144,8 @@
                             <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="Admin_addNewAY.html"><i class="fa fa-circle-o"></i> Add New Academic Year</a></li>
-                            <li><a href="Admin_viewAllAY.html"><i class="fa fa-circle-o"></i> View All Academic Year</a></li>
+                            <li><a href="admin?act=getAYinfo"><i class="fa fa-circle-o"></i> Add New Academic Year</a></li>
+                            <li><a href="admin?act=viewAY"><i class="fa fa-circle-o"></i> View All Academic Year</a></li>
                         </ul>
                     </li>
                     <li class="treeview">
@@ -155,8 +155,8 @@
                             <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="Admin_addNewFaculty.html"><i class="fa fa-circle-o"></i> Add New Faculty</a></li>
-                            <li><a href="Admin_viewAllFaculties.html"><i class="fa fa-circle-o"></i> View All Faculties</a></li>
+                            <li><a href="admin?act=getFAinfo"><i class="fa fa-circle-o"></i> Add New Faculty</a></li>
+                            <li><a href="admin?act=viewFa"><i class="fa fa-circle-o"></i> View All Faculties</a></li>
                         </ul>
                     </li>
                     <li class="treeview">
@@ -180,7 +180,7 @@
             <section class="content-header">
                 <h1>Dashboard<small>Control panel</small></h1>
                 <ol class="breadcrumb">
-                    <li><a href="index.html"><i class="fa fa-dashboard"></i> Home</a></li>
+                    <li><a href="index.jsp"><i class="fa fa-dashboard"></i> Home</a></li>
                     <li class="active">Dashboard</li>
                 </ol>
             </section>
@@ -200,7 +200,7 @@
                             <div class="icon">
                                 <i class="ion ion-person"></i>
                             </div>
-                            <a href="Admin_viewAllUsers.html" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                            <a href="Admin_viewAllUsers.jsp" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->
@@ -215,7 +215,7 @@
                             <div class="icon">
                                 <i class="ion ion-stats-bars"></i>
                             </div>
-                            <a href="Admin_viewAllFaculties.html" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                            <a href="admin?act=viewFa" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->
@@ -230,7 +230,7 @@
                             <div class="icon">
                                 <i class="ion ion-checkmark-circled"></i>
                             </div>
-                            <a href="Admin_viewAllAY.html" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                            <a href="admin?act=viewAY" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->

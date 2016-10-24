@@ -43,7 +43,7 @@
 
     <header class="main-header">
       <!-- Logo -->
-      <a href="index.html" class="logo">
+      <a href="index.jsp" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b>F</b>GR</span>
         <!-- logo for regular state and mobile devices -->
@@ -81,7 +81,7 @@
                     <a href="#" class="btn btn-default btn-flat">Profile</a>
                   </div>
                   <div class="pull-right">
-                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                     <a href="login.jsp" class="btn btn-default btn-flat">Sign out</a>
                   </div>
                 </li>
               </ul>
@@ -125,8 +125,8 @@
               <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="Admin_addNewUser.html"><i class="fa fa-circle-o"></i> Add New User</a></li>
-              <li><a href="Admin_viewAllUsers.html"><i class="fa fa-circle-o"></i> View All Users</a></li>
+              <li><a href="Admin_addNewUser.jsp"><i class="fa fa-circle-o"></i> Add New User</a></li>
+              <li><a href="admin?act=viewUser"><i class="fa fa-circle-o"></i> View All Users</a></li>
             </ul>
           </li>
           <li class="treeview">
@@ -135,8 +135,8 @@
               <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="Admin_addNewAY.html"><i class="fa fa-circle-o"></i> Add New Academic Year</a></li>
-              <li><a href="Admin_viewAllAY.html"><i class="fa fa-circle-o"></i> View All Academic Year</a></li>
+              <li><a href="admin?act=getAYinfo"><i class="fa fa-circle-o"></i> Add New Academic Year</a></li>
+              <li><a href="admin?act=viewAY"><i class="fa fa-circle-o"></i> View All Academic Year</a></li>
             </ul>
           </li>
           <li class="treeview">
@@ -146,8 +146,8 @@
               <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="Admin_addNewFaculty.html"><i class="fa fa-circle-o"></i> Add New Faculty</a></li>
-              <li><a href="Admin_viewAllFaculties.html"><i class="fa fa-circle-o"></i> View All Faculties</a></li>
+              <li><a href="admin?act=getFAinfo"><i class="fa fa-circle-o"></i> Add New Faculty</a></li>
+              <li><a href="admin?act=viewFa"><i class="fa fa-circle-o"></i> View All Faculties</a></li>
             </ul>
           </li>
         </ul>
@@ -161,7 +161,7 @@
       <section class="content-header">
         <h1>Dashboard<small>Control panel</small></h1>
         <ol class="breadcrumb">
-          <li><a href="index.html"><i class="fa fa-dashboard"></i> Home</a></li>
+          <li><a href="index.jsp"><i class="fa fa-dashboard"></i> Home</a></li>
           <li><a href="#"><i class="fa fa-user"></i> Users</a></li>
           <li class="active">View All Users</li>
         </ol>
@@ -194,18 +194,17 @@
                   <tbody>
                       <c:forEach items="${listUser}" var="n">
                     <tr>
-                      <th scope="row">1</th>
+                      <th scope="row">${n.getUserID()}</th>
                       <td>${n.getUserName()}</td>
-                      <td><a href="Admin_editUser.html" class="btn btn-default" role="button">Edit</a> <a href="#" class="btn btn-default" role="button">Delete</a></td>
+                      <td>${n.getGender()}</td>
+                      <td>${n.getDob()}</td>
+                       <td>${n.getMail()}</td>
+                       <td>${n.getAddress()}</td>
+                       <td>${n.getPhone()}</td>
+                       <td>${n.getRoleID()}</td>
+                      <td><a href="Admin_editUser.jsp" class="btn btn-default" role="button">Edit</a> <a href="#" class="btn btn-default" role="button">Delete</a></td>
                     </tr>
-                    
-                    
-                    
-                    
-                  
-                    
-                    
-                    
+               
                   </tbody>
                     </c:forEach>
                 </table>

@@ -46,7 +46,7 @@ public class CMR_UsersServlet extends HttpServlet {
                     break;
                 }
             }
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+            request.getRequestDispatcher("login.jsp").forward(request, response);
         } else if (action.equals("btnLogin")) {
             login(request, response);
         }
@@ -112,7 +112,7 @@ public class CMR_UsersServlet extends HttpServlet {
                             Cookie cookie1=new Cookie("userid", String.valueOf(cmrUsers.getUserID()));
                             response.addCookie(cookie);
                             response.addCookie(cookie1);
-                            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/course");
+                            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
                             dispatcher.forward(request, response);
                             break;
                         }

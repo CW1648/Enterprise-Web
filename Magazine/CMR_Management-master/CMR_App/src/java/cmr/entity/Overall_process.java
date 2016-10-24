@@ -18,6 +18,7 @@ public class Overall_process {
     private int mm_ID;
     private Date op_startDate;
     private Date op_endDate;
+    private String MM;
 
     public Overall_process() {
     }
@@ -29,6 +30,16 @@ public class Overall_process {
         this.op_startDate = op_startDate;
         this.op_endDate = op_endDate;
     }
+
+    public String getMM() {
+        return MM;
+    }
+
+    public void setMM(String MM) {
+        this.MM = MM;
+    }
+    
+    
 
     public int getOp_ID() {
         return op_ID;

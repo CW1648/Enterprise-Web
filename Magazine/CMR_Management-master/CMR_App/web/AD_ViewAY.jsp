@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <!DOCTYPE html>
 <html>
@@ -42,7 +43,7 @@
 
     <header class="main-header">
       <!-- Logo -->
-      <a href="index.html" class="logo">
+      <a href="index.jsp" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b>F</b>GR</span>
         <!-- logo for regular state and mobile devices -->
@@ -80,7 +81,7 @@
                     <a href="#" class="btn btn-default btn-flat">Profile</a>
                   </div>
                   <div class="pull-right">
-                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                     <a href="login.jsp" class="btn btn-default btn-flat">Sign out</a>
                   </div>
                 </li>
               </ul>
@@ -124,8 +125,8 @@
               <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="Admin_addNewUser.html"><i class="fa fa-circle-o"></i> Add New User</a></li>
-              <li><a href="Admin_viewAllUsers.html"><i class="fa fa-circle-o"></i> View All Users</a></li>
+              <li><a href="Admin_addNewUser.jsp"><i class="fa fa-circle-o"></i> Add New User</a></li>
+              <li><a href="admin?act=viewUser"><i class="fa fa-circle-o"></i> View All Users</a></li>
             </ul>
           </li>
           <li class="treeview">
@@ -134,8 +135,8 @@
               <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="Admin_addNewAY.html"><i class="fa fa-circle-o"></i> Add New Academic Year</a></li>
-              <li><a href="Admin_viewAllAY.html"><i class="fa fa-circle-o"></i> View All Academic Year</a></li>
+              <li><a href="admin?act=getAYinfo"><i class="fa fa-circle-o"></i> Add New Academic Year</a></li>
+              <li><a href="admin?act=viewAY"><i class="fa fa-circle-o"></i> View All Academic Year</a></li>
             </ul>
           </li>
           <li class="treeview">
@@ -145,8 +146,8 @@
               <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="Admin_addNewFaculty.html"><i class="fa fa-circle-o"></i> Add New Faculty</a></li>
-              <li><a href="Admin_viewAllFaculties.html"><i class="fa fa-circle-o"></i> View All Faculties</a></li>
+              <li><a href="admin?act=getFAinfo"><i class="fa fa-circle-o"></i> Add New Faculty</a></li>
+              <li><a href="admin?act=viewFa"><i class="fa fa-circle-o"></i> View All Faculties</a></li>
             </ul>
           </li>
         </ul>
@@ -160,7 +161,7 @@
       <section class="content-header">
         <h1>Dashboard<small>Control panel</small></h1>
         <ol class="breadcrumb">
-          <li><a href="index.html"><i class="fa fa-dashboard"></i> Home</a></li>
+          <li><a href="index.jsp"><i class="fa fa-dashboard"></i> Home</a></li>
           <li><a href="#"><i class="fa fa-tasks"></i> Academic Years</a></li>
           <li class="active">View All Academic Years</li>
         </ol>
@@ -188,126 +189,16 @@
                     </tr>
                   </thead>
                   <tbody>
+                    <c:forEach items="${listAy}" var="n">
                     <tr>
-                      <th scope="row">1</th>
-                      <td>2016</td>
-                      <td>09/23/2016</td>
-                      <td>09/23/2016</td>
-                      <td>123</td>
-                      <td><a href="Admin_editAY.html" class="btn btn-default" role="button">Edit</a> <a href="#" class="btn btn-default" role="button">Delete</a></td>
+                      <th scope="row">${n.getOp_ID()}</th>
+                      <td>${n.getOp_year()}</td>
+                      <td>${n.getOp_startDate()}</td>
+                      <td>${n.getOp_endDate()}</td>
+                      <td>${n.getMM()}</td>
+                      <td><a href="Admin_editAY.jsp" class="btn btn-default" role="button">Edit</a> <a href="#" class="btn btn-default" role="button">Delete</a></td>
                     </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>2016</td>
-                      <td>09/23/2016</td>
-                      <td>09/23/2016</td>
-                      <td>234</td>
-                      <td><a href="Admin_editAY.html" class="btn btn-default" role="button">Edit</a> <a href="#" class="btn btn-default" role="button">Delete</a></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">3</th>
-                      <td>2016</td>
-                      <td>09/23/2016</td>
-                      <td>09/23/2016</td>
-                      <td>1243</td>
-                      <td><a href="Admin_editAY.html" class="btn btn-default" role="button">Edit</a> <a href="#" class="btn btn-default" role="button">Delete</a></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">4</th>
-                      <td>2016</td>
-                      <td>09/23/2016</td>
-                      <td>09/23/2016</td>
-                      <td>333</td>
-                      <td><a href="Admin_editAY.html" class="btn btn-default" role="button">Edit</a> <a href="#" class="btn btn-default" role="button">Delete</a></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">5</th>
-                      <td>2016</td>
-                      <td>09/23/2016</td>
-                      <td>09/23/2016</td>
-                      <td>444</td>
-                      <td><a href="Admin_editAY.html" class="btn btn-default" role="button">Edit</a> <a href="#" class="btn btn-default" role="button">Delete</a></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">6</th>
-                      <td>2016</td>
-                      <td>09/23/2016</td>
-                      <td>09/23/2016</td>
-                      <td>555</td>
-                      <td><a href="Admin_editAY.html" class="btn btn-default" role="button">Edit</a> <a href="#" class="btn btn-default" role="button">Delete</a></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">7</th>
-                      <td>2016</td>
-                      <td>09/23/2016</td>
-                      <td>09/23/2016</td>
-                      <td>666</td>
-                      <td><a href="Admin_editAY.html" class="btn btn-default" role="button">Edit</a> <a href="#" class="btn btn-default" role="button">Delete</a></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">8</th>
-                      <td>2016</td>
-                      <td>09/23/2016</td>
-                      <td>09/23/2016</td>
-                      <td>777</td>
-                      <td><a href="Admin_editAY.html" class="btn btn-default" role="button">Edit</a> <a href="#" class="btn btn-default" role="button">Delete</a></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">9</th>
-                      <td>2017</td>
-                      <td>09/23/2016</td>
-                      <td>09/23/2016</td>
-                      <td>452</td>
-                      <td><a href="Admin_editAY.html" class="btn btn-default" role="button">Edit</a> <a href="#" class="btn btn-default" role="button">Delete</a></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">10</th>
-                      <td>2017</td>
-                      <td>09/23/2016</td>
-                      <td>09/23/2016</td>
-                      <td>3523</td>
-                      <td><a href="Admin_editAY.html" class="btn btn-default" role="button">Edit</a> <a href="#" class="btn btn-default" role="button">Delete</a></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">11</th>
-                      <td>2017</td>
-                      <td>09/23/2016</td>
-                      <td>09/23/2016</td>
-                      <td>23232</td>
-                      <td><a href="Admin_editAY.html" class="btn btn-default" role="button">Edit</a> <a href="#" class="btn btn-default" role="button">Delete</a></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">12</th>
-                      <td>2017</td>
-                      <td>09/23/2016</td>
-                      <td>09/23/2016</td>
-                      <td>4444</td>
-                      <td><a href="Admin_editAY.html" class="btn btn-default" role="button">Edit</a> <a href="#" class="btn btn-default" role="button">Delete</a></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">13</th>
-                      <td>2017</td>
-                      <td>09/23/2016</td>
-                      <td>09/23/2016</td>
-                      <td>3333</td>
-                      <td><a href="Admin_editAY.html" class="btn btn-default" role="button">Edit</a> <a href="#" class="btn btn-default" role="button">Delete</a></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">14</th>
-                      <td>2017</td>
-                      <td>09/23/2016</td>
-                      <td>09/23/2016</td>
-                      <td>7777</td>
-                      <td><a href="Admin_editAY.html" class="btn btn-default" role="button">Edit</a> <a href="#" class="btn btn-default" role="button">Delete</a></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">15</th>
-                      <td>2017</td>
-                      <td>09/23/2016</td>
-                      <td>09/23/2016</td>
-                      <td>67676</td>
-                      <td><a href="Admin_editAY.html" class="btn btn-default" role="button">Edit</a> <a href="#" class="btn btn-default" role="button">Delete</a></td>
-                    </tr>
+                    </c:forEach>
                   </tbody>
                 </table>
               </div>

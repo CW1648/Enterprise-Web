@@ -48,8 +48,7 @@ create table Articles(
 	articleTitle nvarchar(255) not null,
 	articleContent text not null,
 	articlePicture nvarchar(max),
-	articleAuthor int,
-	foreign key (articleAuthor) references Users(userID), /* author phai la 1 user */
+	articleAuthor int,	foreign key (articleAuthor) references Users(userID), /* author phai la 1 user */
 	articleFaculty int,
 	foreign key (articleFaculty) references Faculties(facultyID), /* article phai thuoc ve 1 faculty nao do */
 	articleStatus VARCHAR(30), /* check trang thai, chi co the la Submitted hoac Approved */
