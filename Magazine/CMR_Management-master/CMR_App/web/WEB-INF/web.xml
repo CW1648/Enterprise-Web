@@ -52,6 +52,10 @@
         <servlet-name>OverallServlet</servlet-name>
         <servlet-class>cmr.servlet.OverallServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AdminServlet</servlet-name>
+        <servlet-class>cmr.servlet.AdminServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CMR_UsersServlet</servlet-name>
         <url-pattern>/cmr_users</url-pattern>
@@ -75,6 +79,10 @@
     <servlet-mapping>
         <servlet-name>OverallServlet</servlet-name>
         <url-pattern>/Overall</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminServlet</servlet-name>
+        <url-pattern>/admin</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -1,139 +1,586 @@
+<%-- 
+    Document   : index
+    Created on : Oct 24, 2016, 3:16:43 PM
+    Author     : khatn
+--%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!doctype html>
-<html lang="en" class="no-js">
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="ESWD Coursework">
-  <meta name="author" content="Ryserg Tung">
-  <!--<link rel="icon" href="../../favicon.ico">-->
-  <title>University Portal</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>FPT Greenwich | Dashboard</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.6 -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="plugins/iCheck/flat/blue.css">
+    <!-- Morris chart -->
+    <link rel="stylesheet" href="plugins/morris/morris.css">
+    <!-- jvectormap -->
+    <link rel="stylesheet" href="plugins/jvectormap/jquery-jvectormap-1.2.2.css">
+    <!-- Date Picker -->
+    <link rel="stylesheet" href="plugins/datepicker/datepicker3.css">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
+    <!-- bootstrap wysihtml5 - text editor -->
+    <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 
-  <!-- Bootstrap core CSS -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Custom styles for this website -->
-  <link href="css/font-awesome.min.css" rel="stylesheet">
-  <link href="css/style.css" rel="stylesheet">
-
-  <!-- Custom fonts for this website -->
-  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
-
-<!--  <style>
-    body {
-      overflow: hidden;
-    }
-    /* Preloader */
-
-    #preloader {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: black;
-      /* change if the mask should have another color then white */
-      z-index: 99;
-      /* makes sure it stays on top */
-    }
-
-    #status {
-      width: 150px;
-      height: 150px;
-      position: absolute;
-      left: 50%;
-      /* centers the loading animation horizontally one the screen */
-      top: 50%;
-      /* centers the loading animation vertically one the screen */
-      background-image: url('images/logo1.png');
-      /* path to your loading animation */
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: 150px;
-      margin: -60px 0 0 -60px;
-      /* is width and height divided by two */
-      -webkit-animation: spin 2s linear infinite;
-      -moz-animation: spin 2s linear infinite;
-      animation: spin 2s linear infinite;
-    }
-
-    @-moz-keyframes spin {
-      100% {
-        -moz-transform: rotate(360deg);
-      }
-    }
-
-    @-webkit-keyframes spin {
-      100% {
-        -webkit-transform: rotate(360deg);
-      }
-    }
-
-    @keyframes spin {
-      100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-      }
-    }
-  </style>-->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
 </head>
 
-<body>
-  <!-- Preloader -->
-  <div id="preloader">
-    <div id="status">&nbsp;</div>
-  </div>
-
-  <div class="login-container">
+<body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
-      <div class="row loginRow">
-        <img src="images/logo.png" alt="" />
-        <h3>Login</h3>
-         <form class="form-horizontal" id="ContactForm" method="post" action="cmr_users">
-          <div class="form-group">
-           <input type="text" class="form-control" id="userName" name="txtUserName" placeholder="User name"
-                                                           >
 
-          </div>
-          <div class="form-group">
-             <input type="password" class="form-control" id="pwd" name="txtPassword" placeholder="Password"
-                                    >
-          </div>
-          <div class="checkbox">
-            <label>
-              <input type="checkbox"> Remember me
-            </label>
-          </div>
-          <button class="btn btn-default" id="contactbtn" name="act" value="btnLogin">Login</button>
-                                                    <c:if test="${!empty(msg)}" >
-                                                        <p style="color:red;">${msg}</p>
-                                                    </c:if>
-          <a href="#">Forget password?</a>
-        </form>
-      </div>
+        <header class="main-header">
+            <!-- Logo -->
+            <a href="index.html" class="logo">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini"><b>F</b>GR</span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg"><b>FPT</b> Greenwich</span>
+            </a>
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                </a>
+
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        <!-- User Account: style can be found in dropdown.less -->
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                                <span class="hidden-xs">Ryserg Tung</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- User image -->
+                                <li class="user-header">
+                                    <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+
+                                    <p>
+                                        Ryserg Tung
+                                        <br />
+                                        <span>Administrator</span>
+                                    </p>
+                                </li>
+                                <!-- Menu Footer-->
+                                <li class="user-footer">
+                                    <div class="pull-left">
+                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                    </div>
+                                    <div class="pull-right">
+                                        <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="main-sidebar">
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+                <!-- Sidebar user panel -->
+                <div class="user-panel">
+                    <div class="pull-left image">
+                        <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                    </div>
+                    <div class="pull-left info">
+                        <p>Ryserg Tung</p>
+                        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                    </div>
+                </div>
+                <!-- search form -->
+                <form action="#" method="get" class="sidebar-form">
+                    <div class="input-group">
+                        <input type="text" name="q" class="form-control" placeholder="Search...">
+                        <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                </button>
+              </span>
+                    </div>
+                </form>
+                <!-- /.search form -->
+                <!-- sidebar menu: : style can be found in sidebar.less -->
+                <ul class="sidebar-menu">
+                    <li class="header">MAIN NAVIGATION</li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-user"></i>
+                            <span>Users</span>
+                            <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="AD_ViewUsers.jsp"><i class="fa fa-circle-o"></i> Add New User</a></li>
+                            <li><a href="Admin_viewAllUsers.html"><i class="fa fa-circle-o"></i> View All Users</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-tasks"></i> <span>Academic Year</span>
+                            <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="Admin_addNewAY.html"><i class="fa fa-circle-o"></i> Add New Academic Year</a></li>
+                            <li><a href="Admin_viewAllAY.html"><i class="fa fa-circle-o"></i> View All Academic Year</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-laptop"></i>
+                            <span>Faculties</span>
+                            <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="Admin_addNewFaculty.html"><i class="fa fa-circle-o"></i> Add New Faculty</a></li>
+                            <li><a href="Admin_viewAllFaculties.html"><i class="fa fa-circle-o"></i> View All Faculties</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-edit"></i> <span>Reports</span>
+                            <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="#"><i class="fa fa-circle-o"></i> Statistical Reports</a></li>
+                            <li><a href="#"><i class="fa fa-circle-o"></i> Exceptional Reports</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            <!-- /.sidebar -->
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <h1>Dashboard<small>Control panel</small></h1>
+                <ol class="breadcrumb">
+                    <li><a href="index.html"><i class="fa fa-dashboard"></i> Home</a></li>
+                    <li class="active">Dashboard</li>
+                </ol>
+            </section>
+
+            <!-- Main content -->
+            <section class="content">
+                <!-- Small boxes (Stat box) -->
+                <div class="row">
+                    <div class="col-lg-4 col-xs-4">
+                        <!-- small box -->
+                        <div class="small-box bg-aqua">
+                            <div class="inner">
+                                <h3>150</h3>
+
+                                <p>Users</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-person"></i>
+                            </div>
+                            <a href="Admin_viewAllUsers.html" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-lg-4 col-xs-4">
+                        <!-- small box -->
+                        <div class="small-box bg-green">
+                            <div class="inner">
+                                <h3>53</h3>
+
+                                <p>Faculties</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-stats-bars"></i>
+                            </div>
+                            <a href="Admin_viewAllFaculties.html" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-lg-4 col-xs-4">
+                        <!-- small box -->
+                        <div class="small-box bg-yellow">
+                            <div class="inner">
+                                <h3>44</h3>
+
+                                <p>Academic Years</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-checkmark-circled"></i>
+                            </div>
+                            <a href="Admin_viewAllAY.html" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                </div>
+                <!-- /.row -->
+                <!-- Main row -->
+                <div class="row">
+                    <!-- Left col -->
+                    <section class="col-lg-7 connectedSortable">
+
+                        <!-- TO DO List -->
+                        <div class="box box-primary">
+                            <div class="box-header">
+                                <i class="ion ion-clipboard"></i>
+
+                                <h3 class="box-title">Notifications</h3>
+
+                                <div class="box-tools pull-right">
+                                    <ul class="pagination pagination-sm inline">
+                                        <li><a href="#">&laquo;</a></li>
+                                        <li><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">&raquo;</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- /.box-header -->
+                            <div class="box-body">
+                                <ul class="todo-list">
+                                    <li>
+                                        <!-- todo text -->
+                                        <span class="text">Notification1</span>
+                                        <!-- General tools such as edit or delete-->
+                                        <div class="tools">
+                                            <i class="fa fa-trash-o"></i>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span class="text">Notification2</span>
+                                        <div class="tools">
+                                            <i class="fa fa-trash-o"></i>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span class="text">Notification3</span>
+                                        <div class="tools">
+                                            <i class="fa fa-trash-o"></i>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span class="text">Notification4</span>
+                                        <div class="tools">
+                                            <i class="fa fa-trash-o"></i>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span class="text">Notification5</span>
+                                        <div class="tools">
+                                            <i class="fa fa-trash-o"></i>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span class="text">Notification6</span>
+                                        <div class="tools">
+                                            <i class="fa fa-trash-o"></i>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- /.box -->
+
+                    </section>
+                    <!-- /.Left col -->
+                    <!-- right col (We are only adding the ID to make the widgets sortable)-->
+                    <section class="col-lg-5 connectedSortable">
+                        <!-- Calendar -->
+                        <div class="box box-solid bg-green-gradient">
+                            <div class="box-header">
+                                <i class="fa fa-calendar"></i>
+
+                                <h3 class="box-title">Calendar</h3>
+                                <!-- tools box -->
+                                <div class="pull-right box-tools">
+                                    <button type="button" class="btn btn-success btn-sm" data-widget="collapse"><i class="fa fa-minus"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-success btn-sm" data-widget="remove"><i class="fa fa-times"></i>
+                                    </button>
+                                </div>
+                                <!-- /. tools -->
+                            </div>
+                            <!-- /.box-header -->
+                            <div class="box-body no-padding">
+                                <!--The calendar -->
+                                <div id="calendar" style="width: 100%"></div>
+                            </div>
+                            <!-- /.box-body -->
+                        </div>
+                        <!-- /.box -->
+
+                    </section>
+                    <!-- right col -->
+                </div>
+                <!-- /.row (main row) -->
+
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs">
+                <b>Version</b> 2.3.6
+            </div>
+            <strong>Copyright &copy; 2014-2016 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights reserved.
+        </footer>
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Create the tabs -->
+            <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+                <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+                <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <!-- Home tab content -->
+                <div class="tab-pane" id="control-sidebar-home-tab">
+                    <h3 class="control-sidebar-heading">Recent Activity</h3>
+                    <ul class="control-sidebar-menu">
+                        <li>
+                            <a href="javascript:void(0)">
+                                <i class="menu-icon fa fa-birthday-cake bg-red"></i>
+
+                                <div class="menu-info">
+                                    <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
+
+                                    <p>Will be 23 on April 24th</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <i class="menu-icon fa fa-user bg-yellow"></i>
+
+                                <div class="menu-info">
+                                    <h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
+
+                                    <p>New phone +1(800)555-1234</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <i class="menu-icon fa fa-envelope-o bg-light-blue"></i>
+
+                                <div class="menu-info">
+                                    <h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
+
+                                    <p>nora@example.com</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <i class="menu-icon fa fa-file-code-o bg-green"></i>
+
+                                <div class="menu-info">
+                                    <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
+
+                                    <p>Execution time 5 seconds</p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.control-sidebar-menu -->
+
+                    <h3 class="control-sidebar-heading">Tasks Progress</h3>
+                    <ul class="control-sidebar-menu">
+                        <li>
+                            <a href="javascript:void(0)">
+                                <h4 class="control-sidebar-subheading">
+                Custom Template Design
+                <span class="label label-danger pull-right">70%</span>
+              </h4>
+
+                                <div class="progress progress-xxs">
+                                    <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <h4 class="control-sidebar-subheading">
+                Update Resume
+                <span class="label label-success pull-right">95%</span>
+              </h4>
+
+                                <div class="progress progress-xxs">
+                                    <div class="progress-bar progress-bar-success" style="width: 95%"></div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <h4 class="control-sidebar-subheading">
+                Laravel Integration
+                <span class="label label-warning pull-right">50%</span>
+              </h4>
+
+                                <div class="progress progress-xxs">
+                                    <div class="progress-bar progress-bar-warning" style="width: 50%"></div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <h4 class="control-sidebar-subheading">
+                Back End Framework
+                <span class="label label-primary pull-right">68%</span>
+              </h4>
+
+                                <div class="progress progress-xxs">
+                                    <div class="progress-bar progress-bar-primary" style="width: 68%"></div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.control-sidebar-menu -->
+
+                </div>
+                <!-- /.tab-pane -->
+                <!-- Stats tab content -->
+                <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
+                <!-- /.tab-pane -->
+                <!-- Settings tab content -->
+                <div class="tab-pane" id="control-sidebar-settings-tab">
+                    <form method="post">
+                        <h3 class="control-sidebar-heading">General Settings</h3>
+
+                        <div class="form-group">
+                            <label class="control-sidebar-subheading">
+                                Report panel usage
+                                <input type="checkbox" class="pull-right" checked>
+                            </label>
+
+                            <p>
+                                Some information about this general settings option
+                            </p>
+                        </div>
+                        <!-- /.form-group -->
+
+                        <div class="form-group">
+                            <label class="control-sidebar-subheading">
+                                Allow mail redirect
+                                <input type="checkbox" class="pull-right" checked>
+                            </label>
+
+                            <p>
+                                Other sets of options are available
+                            </p>
+                        </div>
+                        <!-- /.form-group -->
+
+                        <div class="form-group">
+                            <label class="control-sidebar-subheading">
+                                Expose author name in posts
+                                <input type="checkbox" class="pull-right" checked>
+                            </label>
+
+                            <p>
+                                Allow the user to show his name in blog posts
+                            </p>
+                        </div>
+                        <!-- /.form-group -->
+
+                        <h3 class="control-sidebar-heading">Chat Settings</h3>
+
+                        <div class="form-group">
+                            <label class="control-sidebar-subheading">
+                                Show me as online
+                                <input type="checkbox" class="pull-right" checked>
+                            </label>
+                        </div>
+                        <!-- /.form-group -->
+
+                        <div class="form-group">
+                            <label class="control-sidebar-subheading">
+                                Turn off notifications
+                                <input type="checkbox" class="pull-right">
+                            </label>
+                        </div>
+                        <!-- /.form-group -->
+
+                        <div class="form-group">
+                            <label class="control-sidebar-subheading">
+                                Delete chat history
+                                <a href="javascript:void(0)" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
+                            </label>
+                        </div>
+                        <!-- /.form-group -->
+                    </form>
+                </div>
+                <!-- /.tab-pane -->
+            </div>
+        </aside>
+        <!-- /.control-sidebar -->
+        <!-- Add the sidebar's background. This div must be placed
+       immediately after the control sidebar -->
+        <div class="control-sidebar-bg"></div>
     </div>
-  </div>
+    <!-- ./wrapper -->
 
-
-  <!-- Bootstrap core JavaScript
-    ================================================== -->
-  <!-- Placed at the end of the document so the pages load faster -->
-  <script src="js/jquery-3.1.0.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <!-- Preloader -->
-  <script type="text/javascript">
-    //<![CDATA[
-    $(window).on('load', function() { // makes sure the whole site is loaded
-        $('#status').fadeOut(); // will first fade out the loading animation
-        $('#preloader').delay(500).fadeOut('slow'); // will fade out the white DIV that covers the website.
-        $('body').delay(350).css({
-          'overflow': 'visible'
-        });
-      })
-      //]]>
-  </script>
+    <!-- jQuery 2.2.3 -->
+    <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+        $.widget.bridge('uibutton', $.ui.button);
+    </script>
+    <!-- Bootstrap 3.3.6 -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- Morris.js charts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="plugins/morris/morris.min.js"></script>
+    <!-- Sparkline -->
+    <script src="plugins/sparkline/jquery.sparkline.min.js"></script>
+    <!-- jvectormap -->
+    <script src="plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <!-- jQuery Knob Chart -->
+    <script src="plugins/knob/jquery.knob.js"></script>
+    <!-- daterangepicker -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+    <script src="plugins/daterangepicker/daterangepicker.js"></script>
+    <!-- datepicker -->
+    <script src="plugins/datepicker/bootstrap-datepicker.js"></script>
+    <!-- Bootstrap WYSIHTML5 -->
+    <script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+    <!-- Slimscroll -->
+    <script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
+    <!-- FastClick -->
+    <script src="plugins/fastclick/fastclick.js"></script>
+    <!-- AdminLTE App -->
+    <script src="dist/js/app.min.js"></script>
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="dist/js/pages/dashboard.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="dist/js/demo.js"></script>
 </body>
 
 </html>

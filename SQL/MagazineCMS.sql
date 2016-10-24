@@ -100,7 +100,8 @@ insert into Faculties values('faculty1',GETDATE(),2,1,GETDATE(),'2016-11-01');
 insert into Faculties values('faculty2',GETDATE(),2,1,GETDATE(),'2016-11-01');
 
 
-
+drop procedure usp_getAllUser
+go
 create procedure usp_getAllUser
 as
 begin

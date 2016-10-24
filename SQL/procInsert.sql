@@ -152,7 +152,7 @@ select*from Faculties
 end
 go
 exec usp_getFaculties
-
+go
 drop procedure usp_updateArticles
 go
 create procedure usp_updateArticles

@@ -5,6 +5,8 @@
  */
 package cmr.entity;
 
+import java.sql.Date;
+
 /**
  *
  * @author Nguyen
@@ -16,7 +18,7 @@ public class CMR_Users {
     private String uPassword;
     private String sessionID;
     private String gender;//check gender F or M
-    private String dob;
+    private Date dob;
     private int roleID;
     private String address;
     private String phone;
@@ -30,7 +32,17 @@ public class CMR_Users {
         this.uPassword = uPassword;
     }
 
-    public CMR_Users(int userID, String userName, String uPassword, String sessionID, String gender, String dob, int roleID, String address, String phone, String mail) {
+    public CMR_Users(String userName, String gender, Date dob, int roleID, String address, String phone, String mail) {
+        this.userName = userName;
+        this.gender = gender;
+        this.dob = dob;
+        this.roleID = roleID;
+        this.address = address;
+        this.phone = phone;
+        this.mail = mail;
+    }
+
+    public CMR_Users(int userID, String userName, String uPassword, String sessionID, String gender, Date dob, int roleID, String address, String phone, String mail) {
         this.userID = userID;
         this.userName = userName;
         this.uPassword = uPassword;
@@ -83,11 +95,11 @@ public class CMR_Users {
         this.gender = gender;
     }
 
-    public String getDob() {
+    public Date getDob() {
         return dob;
     }
 
-    public void setDob(String dob) {
+    public void setDob(Date dob) {
         this.dob = dob;
     }
 
