@@ -119,6 +119,18 @@ public class ShowArticlesServlet extends HttpServlet {
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ShowArticles");
                 dispatcher.forward(request, response);
             }
+        }else if(action.equals("comment")){
+            String content=request.getParameter("message");
+            int id = Integer.parseInt(request.getParameter("id"));
+            Comments com1=new Comments();
+            com1.setArticleID(id);
+            com1.setCommentAuthor(studentid);
+            com1.setCommentContent(content);
+            Overall_processDB db1=new Overall_processDB();
+            if(db1.insert_comment(com1)){
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Process?act=view&id="+id);
+                dispatcher.forward(request, response);
+            }
         }
 
     }
