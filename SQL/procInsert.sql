@@ -247,7 +247,7 @@ create procedure usp_showcommet
 @articleID int
 as
 begin
-select*from comment where articleID=@articleID;
+select*from comment,Users where articleID=@articleID and comment.commentAuthor=Users.userID;
 end
 go
 

@@ -185,7 +185,7 @@
               <div class="box-body">
               
                 <div class="form-group">
-                    <input class="form-control" placeholder="Title:" name="title">
+                    <input class="form-control" placeholder="Title:max leght 50" name="title" maxlength="50" minlength="1">
                 </div>
                 <div class="form-group">
                     <textarea id="compose-textarea" class="form-control" style="height: 300px" name="content">

@@ -152,17 +152,17 @@ public class CMR_UsersServlet extends HttpServlet {
                         }
                     default:
                         request.setAttribute("msg", "Login fail");
-                        request.getRequestDispatcher("index.jsp").forward(request, response);
+                        request.getRequestDispatcher("login.jsp").forward(request, response);
                         break;
                 }
 
             } else {
                 request.setAttribute("msg", "Login fail");
-                request.getRequestDispatcher("index.jsp").forward(request, response);
+                request.getRequestDispatcher("login.jsp").forward(request, response);
             }
         } else {
             request.setAttribute("msg", "Enter your user name or password again!");
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+            request.getRequestDispatcher("login.jsp").forward(request, response);
         }
 
     }

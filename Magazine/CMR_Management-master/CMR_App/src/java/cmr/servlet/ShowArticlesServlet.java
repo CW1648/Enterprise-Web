@@ -115,8 +115,8 @@ public class ShowArticlesServlet extends HttpServlet {
                 updateitem.setArticlePicture(filePart.getInputStream());
             }
             if (db.Update_Articles(updateitem)) {
-//              response.sendRedirect("/CMR_App/ShowArticles");
-                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ShowArticles");
+              //response.sendRedirect("/CMR_App/ShowArticles");
+               RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ShowArticles?act=view&id="+id);
                 dispatcher.forward(request, response);
             }
         }else if(action.equals("comment")){
@@ -128,7 +128,7 @@ public class ShowArticlesServlet extends HttpServlet {
             com1.setCommentContent(content);
             Overall_processDB db1=new Overall_processDB();
             if(db1.insert_comment(com1)){
-                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Process?act=view&id="+id);
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ShowArticles?act=view&id="+id);
                 dispatcher.forward(request, response);
             }
         }

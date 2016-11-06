@@ -93,6 +93,7 @@ public class ProcessServlet extends HttpServlet {
             item.setArticleContent(articleContent);
             item.setArticleFaculty(articleFaculty);
             item.setArticleAuthor(articleAuthor);
+            item.setArticleStatus(articleStatus);
             request.setAttribute("item", item);
             List<Comments> listcom=db.getcomment(A_id);
             request.setAttribute("listcom", listcom);
@@ -109,7 +110,19 @@ public class ProcessServlet extends HttpServlet {
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Process?act=con&id="+Fid);
                 dispatcher.forward(request, response);
             }
-        }else if(action.equals("comment")){
+        }else if(action.equals("Unchange")){
+            int id = Integer.parseInt(request.getParameter("id"));
+            int Fid = Integer.parseInt(request.getParameter("Fid"));
+            Articles changeItem=new Articles();
+            changeItem.setArticleID(id);
+            changeItem.setArticleFaculty(Fid);
+            changeItem.setArticleStatus("S");
+            if(db.Update_Status(changeItem)){
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Process?act=con&id="+Fid);
+                dispatcher.forward(request, response);
+            }
+        }
+        else if(action.equals("comment")){
             String content=request.getParameter("message");
             int id = Integer.parseInt(request.getParameter("id"));
             Comments com1=new Comments();

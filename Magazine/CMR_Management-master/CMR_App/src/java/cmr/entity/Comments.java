@@ -15,10 +15,20 @@ public class Comments {
     private int articleID;
     private String commentContent;
     private int commentAuthor;
+    private String username;
 
     public Comments() {
     }
 
+    public Comments(int comment_id, int articleID, String commentContent, int commentAuthor, String username) {
+        this.comment_id = comment_id;
+        this.articleID = articleID;
+        this.commentContent = commentContent;
+        this.commentAuthor = commentAuthor;
+        this.username = username;
+    }
+
+    
     public Comments(int comment_id, int articleID, String commentContent, int commentAuthor) {
         this.comment_id = comment_id;
         this.articleID = articleID;
@@ -57,5 +67,15 @@ public class Comments {
     public void setCommentAuthor(int commentAuthor) {
         this.commentAuthor = commentAuthor;
     }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    
+    
 
 }

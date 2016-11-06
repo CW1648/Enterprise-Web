@@ -191,7 +191,7 @@
                 <!-- Message. Default to the left -->
                 <div class="direct-chat-msg">
                   <div class="direct-chat-info clearfix">
-                    <span class="direct-chat-name pull-left">${n.getCommentAuthor()}</span>
+                    <span class="direct-chat-name pull-left">${n.getUsername()}</span>
                   </div>
                   <!-- /.direct-chat-info -->
                   <img class="direct-chat-img" src="dist/img/user1-128x128.jpg" alt="Message User Image"><!-- /.direct-chat-img -->
@@ -278,7 +278,14 @@
             </div>
             <!-- /.box-footer -->
             <div class="box-footer">
-              <a href="Process?act=change&id=${item.getArticleID()}&Fid=${item.getArticleFaculty()}" class="btn btn-default" role="button"><i class="fa fa-check-square-o"></i> Approve</a>
+                <c:set var="status" scope="session" value="${item.getArticleStatus()}"/>
+                <c:if test="${status=='Approved'}" >
+                  <a href="Process?act=Unchange&id=${item.getArticleID()}&Fid=${item.getArticleFaculty()}" class="btn btn-default" role="button"><i class="fa fa-check-square-o"></i>UnApprove</a>
+                </c:if>
+                <c:if test="${status=='S'}" >
+                  <a href="Process?act=change&id=${item.getArticleID()}&Fid=${item.getArticleFaculty()}" class="btn btn-default" role="button"><i class="fa fa-check-square-o"></i>Approve</a>
+                </c:if>
+             
             </div>
             <!-- /.box-footer -->
           </div>

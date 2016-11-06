@@ -184,7 +184,8 @@ public class Overall_processDB {
                int aid=rs.getInt("articleID");
                String content=rs.getString("commentContent");
                int author=rs.getInt("commentAuthor");
-               listcom.add(new Comments(cid, aid, content, author));
+               String name=rs.getString("userName");
+               listcom.add(new Comments(cid, aid, content, author,name));
             }
         } catch (Exception e) {
             e.printStackTrace();

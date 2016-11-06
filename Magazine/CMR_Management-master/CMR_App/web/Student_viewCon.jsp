@@ -189,7 +189,7 @@
                 <!-- Message. Default to the left -->
                 <div class="direct-chat-msg">
                   <div class="direct-chat-info clearfix">
-                    <span class="direct-chat-name pull-left">${n.getCommentAuthor()}</span>
+                    <span class="direct-chat-name pull-left">${n.getUsername()}</span>
                   </div>
                   <!-- /.direct-chat-info -->
                   <img class="direct-chat-img" src="dist/img/user1-128x128.jpg" alt="Message User Image"><!-- /.direct-chat-img -->
