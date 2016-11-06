@@ -199,7 +199,7 @@
                 <!-- text input -->
                 <div class="form-group">
                   <label>Faculty Name</label>
-                  <input type="text" class="form-control" placeholder="Faculty Name" name="faName">
+                  <input type="text" class="form-control" placeholder="Faculty Name" name="faName" maxlength="30">
                 </div>
                 <div class="form-group">
                   <label>Select Academic Year</label>
@@ -534,6 +534,9 @@
 
     //Date picker
     $('#datepicker').datepicker({
+      autoclose: true
+    });
+    $('#datepicker1').datepicker({
       autoclose: true
     });
 

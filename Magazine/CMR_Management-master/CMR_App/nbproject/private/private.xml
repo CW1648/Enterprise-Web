@@ -3,17 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/hoc%20tap/FGR/Enterprise%20Web%20Software/Enterprise-Web/Magazine/CMR_Management-master/CMR_App/src/java/cmr/entity/Comments.java</file>
-            <file>file:/D:/hoc%20tap/FGR/Enterprise%20Web%20Software/Enterprise-Web/Magazine/CMR_Management-master/CMR_App/src/java/cmr/servlet/ShowArticlesServlet.java</file>
-            <file>file:/D:/hoc%20tap/FGR/Enterprise%20Web%20Software/Enterprise-Web/Magazine/CMR_Management-master/CMR_App/src/java/cmr/servlet/CMR_UsersServlet.java</file>
-            <file>file:/D:/hoc%20tap/FGR/Enterprise%20Web%20Software/Enterprise-Web/Magazine/CMR_Management-master/CMR_App/src/java/cmr/entity/Articles.java</file>
-            <file>file:/D:/hoc%20tap/FGR/Enterprise%20Web%20Software/Enterprise-Web/Magazine/CMR_Management-master/CMR_App/src/java/cmr/db/Overall_processDB.java</file>
-            <file>file:/D:/hoc%20tap/FGR/Enterprise%20Web%20Software/Enterprise-Web/Magazine/CMR_Management-master/CMR_App/web/MC_viewCon.jsp</file>
-            <file>file:/D:/hoc%20tap/FGR/Enterprise%20Web%20Software/Enterprise-Web/Magazine/CMR_Management-master/CMR_App/web/login.jsp</file>
-            <file>file:/D:/hoc%20tap/FGR/Enterprise%20Web%20Software/Enterprise-Web/Magazine/CMR_Management-master/CMR_App/src/java/cmr/servlet/ArticlesServlet.java</file>
+            <file>file:/D:/hoc%20tap/FGR/Enterprise%20Web%20Software/Enterprise-Web/Magazine/CMR_Management-master/CMR_App/web/AD_addUser.jsp</file>
+            <file>file:/D:/hoc%20tap/FGR/Enterprise%20Web%20Software/Enterprise-Web/Magazine/CMR_Management-master/CMR_App/web/AD_addAY.jsp</file>
             <file>file:/D:/hoc%20tap/FGR/Enterprise%20Web%20Software/Enterprise-Web/Magazine/CMR_Management-master/CMR_App/web/index.jsp</file>
-            <file>file:/D:/hoc%20tap/FGR/Enterprise%20Web%20Software/Enterprise-Web/Magazine/CMR_Management-master/CMR_App/src/java/cmr/servlet/ProcessServlet.java</file>
-            <file>file:/D:/hoc%20tap/FGR/Enterprise%20Web%20Software/Enterprise-Web/Magazine/CMR_Management-master/CMR_App/web/Student_viewCon.jsp</file>
+            <file>file:/D:/hoc%20tap/FGR/Enterprise%20Web%20Software/Enterprise-Web/Magazine/CMR_Management-master/CMR_App/web/AD_addFaculty.jsp</file>
         </group>
     </open-files>
 </project-private>

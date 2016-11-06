@@ -200,7 +200,7 @@
                             <div class="icon">
                                 <i class="ion ion-person"></i>
                             </div>
-                            <a href="Admin_viewAllUsers.jsp" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                            <a href="admin?act=viewUser" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->
